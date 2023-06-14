@@ -28,7 +28,10 @@
     <!-- Content type ["product", "blog", "website", "book", "movie", ... ] -->
     <meta property="og:url" content="https://website.url" />
     <!-- Url to this web page -->
-    <link rel="shortcut icon" href="https://www.bottegaveneta.com/favicon.ico">
+    <link
+      rel="shortcut icon"
+      href="https://www.bottegaveneta.com/favicon.ico"
+    />
     <link
       rel="stylesheet"
       href="https://www.bottegaveneta.com/on/demandware.static/Sites-BV-R-WEUR-Site/-/fr_FR/v1681315523571/css/style.css"
@@ -42,18 +45,42 @@
       <picture>
         <source
           type="image/avif"
-          srcset="./assets/header.png?as=avif&width=400 400w, ./assets/header.png?as=avif&width=800 800w, ./assets/header.png?as=avif&width=1200 1200w, ./assets/header.png?as=avif&width=1920 1920w, ./assets/header.png?as=avif&width=3000 3000w"
+          srcset="
+            ./assets/header.png?as=avif&width=400   400w,
+            ./assets/header.png?as=avif&width=800   800w,
+            ./assets/header.png?as=avif&width=1200 1200w,
+            ./assets/header.png?as=avif&width=1920 1920w,
+            ./assets/header.png?as=avif&width=3000 3000w
+          "
         />
         <source
           type="image/webp"
-          srcset="./assets/header.png?as=webp&width=400 400w, ./assets/header.png?as=webp&width=800 800w, ./assets/header.png?as=webp&width=1200 1200w, ./assets/header.png?as=webp&width=1920 1920w, ./assets/header.png?as=webp&width=3000 3000w"
+          srcset="
+            ./assets/header.png?as=webp&width=400   400w,
+            ./assets/header.png?as=webp&width=800   800w,
+            ./assets/header.png?as=webp&width=1200 1200w,
+            ./assets/header.png?as=webp&width=1920 1920w,
+            ./assets/header.png?as=webp&width=3000 3000w
+          "
         />
         <source
           type="image/png"
-          srcset="./assets/header.png?as=png&width=400 400w, ./assets/header.png?as=png&width=800 800w, ./assets/header.png?as=png&width=1200 1200w, ./assets/header.png?as=png&width=1920 1920w, ./assets/header.png?as=png&width=3000 3000w"
+          srcset="
+            ./assets/header.png?as=png&width=400   400w,
+            ./assets/header.png?as=png&width=800   800w,
+            ./assets/header.png?as=png&width=1200 1200w,
+            ./assets/header.png?as=png&width=1920 1920w,
+            ./assets/header.png?as=png&width=3000 3000w
+          "
         />
         <img
-          srcset="./assets/header.png?as=png&width=400 400w, ./assets/header.png?as=png&width=800 800w, ./assets/header.png?as=png&width=1200 1200w, ./assets/header.png?as=png&width=1920 1920w, ./assets/header.png?as=png&width=3000 3000w"
+          srcset="
+            ./assets/header.png?as=png&width=400   400w,
+            ./assets/header.png?as=png&width=800   800w,
+            ./assets/header.png?as=png&width=1200 1200w,
+            ./assets/header.png?as=png&width=1920 1920w,
+            ./assets/header.png?as=png&width=3000 3000w
+          "
           width="100%"
         />
       </picture>
@@ -61,27 +88,46 @@
 
     <div class="bv-page">
       <div class="page--sections">
+        <section class="section section--media">
+          <div class="section--media__media">
+            <img
+              src="https://bottega-veneta.dam.kering.com/m/35934a1684f1f8ee/Large2-1_Landing_page.jpg"
+              alt=""
+            />
+          </div>
+          <div class="section--media__text text--white">
+            <p>Atelier Bottega Veneta<br />Montebello Vicentino, Italy</p>
+          </div>
+        </section>
         <section class="section section--quote">
           <div class="section--quote__text">
-            <p>"Striving for excellence with genuine passion is what distinguishes
-            our community. Together we preserve our outstanding craft and
-            continue to enrich it with creativity."</p>
+            <p>
+              "Striving for excellence with genuine passion is what
+              distinguishes our community. Together we preserve our outstanding
+              craft and continue to enrich it with creativity."
+            </p>
           </div>
           <div class="section--quote__author">Leo Rongone, CEO</div>
         </section>
         <section class="section section--quote">
           <div class="section--quote__text">
-            <p>"There is an idea of a collective in the name of Bottega Veneta, in which individuals bring their unique perspectives. This shared effort keeps the brand in motion."</p>
+            <p>
+              "There is an idea of a collective in the name of Bottega Veneta,
+              in which individuals bring their unique perspectives. This shared
+              effort keeps the brand in motion."
+            </p>
           </div>
-          <div class="section--quote__author">Matthieu Blazy, Creative Director</div>
+          <div class="section--quote__author">
+            Matthieu Blazy, Creative Director
+          </div>
         </section>
-        <section class="section section--video">
-          <div class="u-hidden@md">
+        <section class="section section--grid cols-2 margins">
+          <div class="pointer-events-none">
             <video-js
               data-account="6159029852001"
               data-player="default"
               data-embed="default"
-              data-video-id="6324983101112"
+              data-video-id="6329263840112"
               data-playlist-id=""
               data-application-id=""
               class="vjs-fluid"
@@ -91,21 +137,75 @@
               muted
             ></video-js>
           </div>
-          <div class="u-show--none@md">
+          <div class="pointer-events-none">
             <video-js
               data-account="6159029852001"
               data-player="default"
               data-embed="default"
-              preload="false"
+              data-video-id="6329265219112"
+              data-playlist-id=""
+              data-application-id=""
+              class="vjs-fluid"
+              loop="true"
+              autoplay="autoplay"
+              controls
               muted
-              autoplay
-              loop
-              data-video-id="6324983101112"
-              class="vjs-9-16"
             ></video-js>
           </div>
         </section>
+        <section class="section section--video">
+          <video-js
+            data-account="6159029852001"
+            data-player="default"
+            data-embed="default"
+            data-video-id="6329264027112"
+            data-playlist-id=""
+            data-application-id=""
+            class="vjs-fluid"
+            loop="true"
+            autoplay="autoplay"
+            controls
+            muted
+          ></video-js>
+        </section>
+        <section class="section section--grid cols-2">
+          <div class="pointer-events-none">
+            text
+          </div>
+          <div class="pointer-events-none">
+            <img src="https://bottega-veneta.dam.kering.com/m/33678934d440f9c1/Small-Slide6.jpg" alt="">
+          </div>
+        </section>
+        <section class="section section--grid cols-2">
+          <div class="pointer-events-none">
+            <video-js
+              data-account="6159029852001"
+              data-player="default"
+              data-embed="default"
+              data-video-id="6329263536112"
+              data-playlist-id=""
+              data-application-id=""
+              class="vjs-fluid"
+              loop="true"
+              autoplay="autoplay"
+              controls
+              muted
+            ></video-js>
+          </div>
+          <div class="pointer-events-none">
+            text
+          </div>
+        </section>
+        <section class="section section--grid cols-2">
+          <div class="pointer-events-none">
+            text
+          </div>
+          <div class="pointer-events-none">
+            <img src="https://bottega-veneta.dam.kering.com/m/731268b4199e4dc5/Small-Slide8.jpg" alt="">
+          </div>
+        </section>
       </div>
+      <a href="#" class="join-us text--uppercase">Join us</a>
     </div>
 
     <!-- Scripts -->
