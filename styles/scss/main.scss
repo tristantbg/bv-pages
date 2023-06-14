@@ -1,0 +1,51 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  img {
+    display: block;
+  }
+}
+.bv-page {
+  --padding: 14px;
+  --viewport-height: 100vh;
+  --section-height: var(--viewport-height);
+  --space-above: calc(var(--header-height) + var(--padding));
+  margin: 0 auto;
+  font-size: 20px;
+  line-height: 1.1;
+  h1 {
+    font-size: 20px;
+    line-height: 27px;
+    font-weight: 400;
+  }
+  .page--sections {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  section.section {
+    width: 100%;
+  }
+  .section--quote {
+    height: var(--section-height);
+    background: #486830;
+    font-size: 4vmax;
+    padding: var(--space-above) 1em 0.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+    justify-content: flex-end;
+    border-top: 1px solid;
+    &__text {
+      max-width: 30ch;
+      text-indent: -0.4em;
+    }
+    &__author {
+      font-size: 0.25em;
+      text-transform: uppercase;
+    }
+  }
+}

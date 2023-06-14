@@ -1,0 +1,9 @@
+{
+	"output": {
+    "comments": false
+  },
+  warnings: false,
+  "compress": {
+    "drop_console": false
+  }
+}

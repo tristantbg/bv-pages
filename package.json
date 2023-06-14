@@ -1,0 +1,23 @@
+{
+  "name": "parcel-static",
+  "version": "1.0.0",
+  "license": "MIT",
+  "source": "src/index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build --no-source-maps index.html --public-url ./ --log-level info",
+    "clean": "rm -rf .parcel-cache"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "2.9.1",
+    "parcel": "latest",
+    "sharp": "^0.31.1"
+  },
+  "dependencies": {
+    "gsap": "^3.12.0",
+    "lodash": "^4.17.21",
+    "parcel-transformer-html-datasrc": "^1.3.3",
+    "rupture-sass": "^1.0.0"
+  }
+}
