@@ -1,5 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import GiaComponents from "./js/components/GiaComponents";
 gsap.registerPlugin(ScrollTrigger);
 
 const App = {
@@ -29,28 +30,69 @@ const App = {
 window.addEventListener("resize", App.sizeSet, false);
 
 document.addEventListener("DOMContentLoaded", () => {
-  App.header = document.querySelector('header')
+  App.header = document.querySelector("header");
   App.container = document.querySelector(".bv-page");
   App.sizeSet();
 
-  const quotes = document.querySelectorAll("section.section--quote");
-  quotes.forEach((s, i) => {
-    const scrollTriggerOptions = {
-      id: "slide-" + i,
-      trigger: s,
-      start: "top top+=10",
-      scrub: true,
-      pin: true,
-      pinSpacing: false,
-      // markers: true,
-    };
+  GiaComponents.init();
 
-    s.scrollTimeline = gsap.timeline({
-      defaults: {
-        duration: 2,
-        // ease: "expo.out",
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: "[join-trigger]",
+        start: "top center",
+        // end: "max",
+        toggleActions: "play none none reverse",
       },
-      scrollTrigger: scrollTriggerOptions,
-    });
-  });
+    })
+    .fromTo(
+      ".join-us",
+      {
+        y: "100%",
+        ease: "expo.out",
+      },
+      { y: "0%", duration: 0.3 }
+    );
+
+  // const quotes = document.querySelectorAll("section.section.fit-height");
+  // quotes.forEach((s, i) => {
+  //   const scrollTriggerOptions = {
+  //     id: "slide-" + i,
+  //     trigger: s,
+  //     start: "bottom bottom",
+  //     scrub: true,
+  //     pin: true,
+  //     pinSpacing: false,
+  //     // markers: true,
+  //   };
+
+  //   s.scrollTimeline = gsap.timeline({
+  //     defaults: {
+  //       duration: 2,
+  //       // ease: "expo.out",
+  //     },
+  //     scrollTrigger: scrollTriggerOptions,
+  //   });
+  // });
+  // const quotes = document.querySelectorAll("section.fit-height");
+  // quotes.forEach((s, i) => {
+  //   const scrollTriggerOptions = {
+  //     id: "slide-" + i,
+  //     trigger: s,
+  //     start: "top top",
+  //     end: "bottom top",
+  //     scrub: true,
+  //     pin: true,
+  //     pinSpacing: false,
+  //     // markers: true,
+  //   };
+
+  //   s.scrollTimeline = gsap.timeline({
+  //     defaults: {
+  //       duration: 3,
+  //       // ease: "expo.out",
+  //     },
+  //     scrollTrigger: scrollTriggerOptions,
+  //   }).to(s, {scaleY: 0, transformOrigin: 'top'});
+  // });
 });

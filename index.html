@@ -43,36 +43,6 @@
   <body page-type="home">
     <header>
       <picture>
-        <source
-          type="image/avif"
-          srcset="
-            ./assets/header.png?as=avif&width=400   400w,
-            ./assets/header.png?as=avif&width=800   800w,
-            ./assets/header.png?as=avif&width=1200 1200w,
-            ./assets/header.png?as=avif&width=1920 1920w,
-            ./assets/header.png?as=avif&width=3000 3000w
-          "
-        />
-        <source
-          type="image/webp"
-          srcset="
-            ./assets/header.png?as=webp&width=400   400w,
-            ./assets/header.png?as=webp&width=800   800w,
-            ./assets/header.png?as=webp&width=1200 1200w,
-            ./assets/header.png?as=webp&width=1920 1920w,
-            ./assets/header.png?as=webp&width=3000 3000w
-          "
-        />
-        <source
-          type="image/png"
-          srcset="
-            ./assets/header.png?as=png&width=400   400w,
-            ./assets/header.png?as=png&width=800   800w,
-            ./assets/header.png?as=png&width=1200 1200w,
-            ./assets/header.png?as=png&width=1920 1920w,
-            ./assets/header.png?as=png&width=3000 3000w
-          "
-        />
         <img
           srcset="
             ./assets/header.png?as=png&width=400   400w,
@@ -88,7 +58,7 @@
 
     <div class="bv-page">
       <div class="page--sections">
-        <section class="section section--media">
+        <section class="section section--media fit-height">
           <div class="section--media__media">
             <img
               src="https://bottega-veneta.dam.kering.com/m/35934a1684f1f8ee/Large2-1_Landing_page.jpg"
@@ -99,7 +69,7 @@
             <p>Atelier Bottega Veneta<br />Montebello Vicentino, Italy</p>
           </div>
         </section>
-        <section class="section section--quote">
+        <section class="section section--quote fit-height">
           <div class="section--quote__text">
             <p>
               "Striving for excellence with genuine passion is what
@@ -109,7 +79,7 @@
           </div>
           <div class="section--quote__author">Leo Rongone, CEO</div>
         </section>
-        <section class="section section--quote">
+        <section class="section section--quote fit-height">
           <div class="section--quote__text">
             <p>
               "There is an idea of a collective in the name of Bottega Veneta,
@@ -153,7 +123,7 @@
             ></video-js>
           </div>
         </section>
-        <section class="section section--video">
+        <section class="section section--media fit-height-desktop" join-trigger>
           <video-js
             data-account="6159029852001"
             data-player="default"
@@ -167,17 +137,38 @@
             controls
             muted
           ></video-js>
+          <div class="section--media__text half">
+            <p>
+              Established in Vicenza, Italy; in 1966, Bottega Veneta preserves
+              an authentic connection to its founding principles of labor et
+              Ingenium, expressing craft and creativity.
+            </p>
+          </div>
         </section>
         <section class="section section--grid cols-2">
-          <div class="pointer-events-none">
-            text
+          <div class="section--grid__text pointer-events-none">
+            <div>
+              <p>
+                We celebrate the uniqueness of every individual. “When your own
+                initials are enough” is the motto that has defined us for over
+                fifty years.
+              </p>
+              <p>
+                We lead with passion, energy and respect. Our mission is to
+                offer a stimulating, caring work environment prioritising ethics
+                and sustainable efforts.
+              </p>
+            </div>
           </div>
           <div class="pointer-events-none">
-            <img src="https://bottega-veneta.dam.kering.com/m/33678934d440f9c1/Small-Slide6.jpg" alt="">
+            <img
+              src="https://bottega-veneta.dam.kering.com/m/33678934d440f9c1/Small-Slide6.jpg"
+              alt=""
+            />
           </div>
         </section>
         <section class="section section--grid cols-2">
-          <div class="pointer-events-none">
+          <div class="pointer-events-none video-ratio">
             <video-js
               data-account="6159029852001"
               data-player="default"
@@ -192,20 +183,68 @@
               muted
             ></video-js>
           </div>
-          <div class="pointer-events-none">
-            text
+          <div class="section--grid__text pointer-events-none">
+            <div>
+              <p>
+                We bring together distinctive talents who share a common purpose
+                and taste for excellence and innovation.
+              </p>
+              <p>
+                Championing the best of every individual, we encourage
+                self-initiative and innovative thinking.
+              </p>
+            </div>
           </div>
         </section>
         <section class="section section--grid cols-2">
-          <div class="pointer-events-none">
-            text
+          <div class="section--grid__text pointer-events-none">
+            <div>
+              <p>
+                Our community strives to bring unique products to life that last
+                generations, instilling their passion in all that we do.
+              </p>
+              <p>
+                Each member contributes to the culture and heritage of Bottega
+                Veneta.
+              </p>
+            </div>
           </div>
           <div class="pointer-events-none">
-            <img src="https://bottega-veneta.dam.kering.com/m/731268b4199e4dc5/Small-Slide8.jpg" alt="">
+            <img
+              src="https://bottega-veneta.dam.kering.com/m/731268b4199e4dc5/Small-Slide8.jpg"
+              alt=""
+            />
+          </div>
+        </section>
+        <section
+          class="section section--slider fit-height user-select-none"
+          g-component="TinySlider"
+        >
+          <div class="section--slider__slide">
+            <div>
+              <p>4000 employees<br />in more than 30 countries</p>
+            </div>
+          </div>
+          <div class="section--slider__slide">
+            <div>
+              <p>Over 126 nationalities</p>
+            </div>
+          </div>
+          <div class="section--slider__slide">
+            <div>
+              <p>56% of our executive<br />positions are held by women</p>
+            </div>
+          </div>
+          <div class="section--slider__slide">
+            <div>
+              <p>
+                Diverse perspectives allow us<br />to thrive in a changing world
+              </p>
+            </div>
           </div>
         </section>
       </div>
-      <a href="#" class="join-us text--uppercase">Join us</a>
+      <a href="#" class="join-us text--uppercase user-select-none">Join us</a>
     </div>
 
     <!-- Scripts -->

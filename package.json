@@ -12,9 +12,11 @@
   "devDependencies": {
     "@parcel/transformer-sass": "2.9.1",
     "parcel": "latest",
+    "process": "^0.11.10",
     "sharp": "^0.31.1"
   },
   "dependencies": {
+    "gia": "^1.0.1",
     "gsap": "^3.12.0",
     "lodash": "^4.17.21",
     "parcel-transformer-html-datasrc": "^1.3.3",
