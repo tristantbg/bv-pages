@@ -10,7 +10,6 @@
     "clean": "rm -rf .parcel-cache"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "2.9.1",
     "parcel": "latest",
     "process": "^0.11.10",
     "sharp": "^0.31.1"
