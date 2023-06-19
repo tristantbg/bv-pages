@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
       { y: "0%", duration: 0.3 }
     );
 
-  // const quotes = document.querySelectorAll("section.section.fit-height");
+  // const quotes = document.querySelectorAll("section.section");
   // quotes.forEach((s, i) => {
   //   const scrollTriggerOptions = {
   //     id: "slide-" + i,

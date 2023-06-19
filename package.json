@@ -6,8 +6,9 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "start": "parcel index.html",
+    "prebuild": "npm run clean",
     "build": "parcel build --no-source-maps index.html --public-url ./ --log-level info",
-    "clean": "rm -rf .parcel-cache"
+    "clean": "rm -rf .parcel-cache && rm -rf dist"
   },
   "devDependencies": {
     "parcel": "latest",

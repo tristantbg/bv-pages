@@ -14,18 +14,19 @@ header {
 }
 .bv-page {
   --padding: 14px;
+  --font-size: 20px;
   --viewport-height: 100vh;
   --section-height: var(--viewport-height);
   --space-above: calc(var(--header-height) + var(--padding));
   margin: 0 auto;
-  font-size: 26px;
   line-height: 1.1;
+  font-size: var(--font-size);
   @include below($md) {
-    font-size: 14px;
+    --font-size: 14px;
   }
   h1 {
-    font-size: 20px;
-    line-height: 27px;
+    font-size: var(--font-size);
+    line-height: 1.1;
     font-weight: 400;
   }
   img,
@@ -69,7 +70,7 @@ header {
       text-indent: -0.4em;
     }
     &__author {
-      font-size: 0.25em;
+      font-size: var(--font-size);
       text-transform: uppercase;
     }
   }
