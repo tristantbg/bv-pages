@@ -38,14 +38,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const slides = document.querySelectorAll("section.section--slides");
   slides.forEach((s, i) => {
-    if (s.classList.contains('desktop-only') && App.isMobile) return
-    const subslides = [...s.querySelectorAll(':scope > section')]
-    console.log('+=' + subslides.map(s => s.offsetHeight).reduce((partialSum, a) => partialSum + a, 0))
+    if (s.classList.contains("desktop-only") && App.isMobile) return;
+    const subslides = [...s.querySelectorAll(":scope > section")];
+    console.log(
+      "+=" +
+        subslides
+          .map((s) => s.offsetHeight)
+          .reduce((partialSum, a) => partialSum + a, 0)
+    );
     const scrollTriggerOptions = {
       id: "slide-" + i,
       trigger: s,
       start: "bottom bottom",
-      end: () => '+=' + subslides.map(s => s.offsetHeight).reduce((partialSum, a) => partialSum + a, 0) * 2,
+      end: () =>
+        "+=" +
+        subslides
+          .map((s) => s.offsetHeight)
+          .reduce((partialSum, a) => partialSum + a, 0) *
+          2,
       scrub: true,
       pin: true,
       pinSpacing: true,
@@ -60,27 +70,27 @@ document.addEventListener("DOMContentLoaded", () => {
       scrollTrigger: scrollTriggerOptions,
     });
 
-    subslides.forEach(sub => {
-      s.scrollTimeline.to(sub, {visibility: 'visible'})
-    })
+    subslides.forEach((sub) => {
+      s.scrollTimeline.to(sub, { visibility: "visible" });
+    });
 
     gsap
-    .timeline({
-      scrollTrigger: {
-        trigger: "[join-trigger]",
-        start: "bottom bottom",
-        // end: "max",
-        toggleActions: "play none none reverse",
-      },
-    })
-    .fromTo(
-      ".join-us",
-      {
-        y: "100%",
-        ease: "expo.out",
-      },
-      { y: "0%", duration: 0.3 }
-    );
+      .timeline({
+        scrollTrigger: {
+          trigger: "[join-trigger]",
+          start: "bottom bottom",
+          // end: "max",
+          toggleActions: "play none none reverse",
+        },
+      })
+      .fromTo(
+        ".join-us",
+        {
+          y: "100%",
+          ease: "expo.out",
+        },
+        { y: "0%", duration: 0.3 }
+      );
 
     // const scrollTriggerOptions = {
     //   id: "slide-" + i,
@@ -100,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //   scrollTrigger: scrollTriggerOptions,
     // });
   });
-  
+
   // const quotes = document.querySelectorAll("section.fit-height");
   // quotes.forEach((s, i) => {
   //   const scrollTriggerOptions = {
@@ -122,4 +132,8 @@ document.addEventListener("DOMContentLoaded", () => {
   //     scrollTrigger: scrollTriggerOptions,
   //   }).to(s, {scaleY: 0, transformOrigin: 'top'});
   // });
+
+  setTimeout(() => {
+    ScrollTrigger.refresh();
+  }, 1000);
 });

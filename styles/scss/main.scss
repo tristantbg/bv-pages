@@ -302,3 +302,7 @@ header {
     }
   }
 }
+
+.bv-page ~ br {
+  display: none;
+}
