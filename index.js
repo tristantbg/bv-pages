@@ -36,11 +36,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
   GiaComponents.init();
 
-  gsap
+  const slides = document.querySelectorAll("section.section--slides");
+  slides.forEach((s, i) => {
+    if (s.classList.contains('desktop-only') && App.isMobile) return
+    const subslides = [...s.querySelectorAll(':scope > section')]
+    console.log('+=' + subslides.map(s => s.offsetHeight).reduce((partialSum, a) => partialSum + a, 0))
+    const scrollTriggerOptions = {
+      id: "slide-" + i,
+      trigger: s,
+      start: "bottom bottom",
+      end: () => '+=' + subslides.map(s => s.offsetHeight).reduce((partialSum, a) => partialSum + a, 0) * 2,
+      scrub: true,
+      pin: true,
+      pinSpacing: true,
+      // markers: true,
+    };
+
+    s.scrollTimeline = gsap.timeline({
+      defaults: {
+        duration: 2,
+        // ease: "expo.out",
+      },
+      scrollTrigger: scrollTriggerOptions,
+    });
+
+    subslides.forEach(sub => {
+      s.scrollTimeline.to(sub, {visibility: 'visible'})
+    })
+
+    gsap
     .timeline({
       scrollTrigger: {
         trigger: "[join-trigger]",
-        start: "top center",
+        start: "bottom bottom",
         // end: "max",
         toggleActions: "play none none reverse",
       },
@@ -54,26 +82,25 @@ document.addEventListener("DOMContentLoaded", () => {
       { y: "0%", duration: 0.3 }
     );
 
-  // const quotes = document.querySelectorAll("section.section");
-  // quotes.forEach((s, i) => {
-  //   const scrollTriggerOptions = {
-  //     id: "slide-" + i,
-  //     trigger: s,
-  //     start: "bottom bottom",
-  //     scrub: true,
-  //     pin: true,
-  //     pinSpacing: false,
-  //     // markers: true,
-  //   };
+    // const scrollTriggerOptions = {
+    //   id: "slide-" + i,
+    //   trigger: s,
+    //   start: "bottom bottom",
+    //   scrub: true,
+    //   pin: true,
+    //   pinSpacing: false,
+    //   // markers: true,
+    // };
 
-  //   s.scrollTimeline = gsap.timeline({
-  //     defaults: {
-  //       duration: 2,
-  //       // ease: "expo.out",
-  //     },
-  //     scrollTrigger: scrollTriggerOptions,
-  //   });
-  // });
+    // s.scrollTimeline = gsap.timeline({
+    //   defaults: {
+    //     duration: 2,
+    //     // ease: "expo.out",
+    //   },
+    //   scrollTrigger: scrollTriggerOptions,
+    // });
+  });
+  
   // const quotes = document.querySelectorAll("section.fit-height");
   // quotes.forEach((s, i) => {
   //   const scrollTriggerOptions = {

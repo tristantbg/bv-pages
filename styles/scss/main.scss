@@ -1,4 +1,4 @@
-@import '~rupture-sass/rupture';
+@import "~rupture-sass/rupture";
 
 $md: 1024px;
 
@@ -16,17 +16,19 @@ header {
   --padding: 14px;
   --font-size: 20px;
   --viewport-height: 100vh;
-  --section-height: var(--viewport-height);
+  --section-height: calc(var(--viewport-height) - var(--header-height));
   --space-above: calc(var(--header-height) + var(--padding));
+  --green: #486830;
   margin: 0 auto;
-  line-height: 1.1;
+  margin-top: var(--header-height);
+  line-height: 1.35;
   font-size: var(--font-size);
-  @include below($md) {
-    --font-size: 14px;
-  }
+  // @include below($md) {
+  //   --font-size: 14px;
+  // }
   h1 {
     font-size: var(--font-size);
-    line-height: 1.1;
+    line-height: 1.35;
     font-weight: 400;
   }
   img,
@@ -47,23 +49,24 @@ header {
     background: white;
     &.fit-height {
       height: var(--section-height);
-      min-height: 50vmax;
+      min-height: 40vmax;
     }
     &.fit-height-desktop {
       @include above($md + 1) {
         height: var(--section-height);
-        min-height: 50vmax;
+        min-height: 40vmax;
       }
     }
   }
   .section--quote {
-    background: #486830;
+    background: var(--green);
     font-size: 4vmax;
     padding: var(--space-above) 1em 0.5em;
     display: flex;
     flex-direction: column;
     gap: 0.8em;
     justify-content: flex-end;
+    line-height: 1.1;
     // border-top: 1px solid;
     &__text {
       max-width: 30ch;
@@ -72,11 +75,13 @@ header {
     &__author {
       font-size: var(--font-size);
       text-transform: uppercase;
+      @include below($md) {
+        --font-size: 14px;
+      }
     }
   }
   .section--media {
     position: relative;
-
     img,
     video {
       width: 100%;
@@ -86,6 +91,10 @@ header {
     }
     &__media {
       height: 100%;
+      pointer-events: none;
+      .video-js {
+        height: 100%;
+      }
     }
     &__text {
       // max-width: 30ch;
@@ -95,10 +104,16 @@ header {
       right: 0;
       padding: 2em;
       z-index: 1;
+      &:not(.half) {
+        @include below($md) {
+          font-size: 14px;
+        }
+      }
       &.half {
         @include portrait() {
           position: initial;
           padding: var(--padding);
+          padding-bottom: 0;
         }
         @include landscape() {
           left: calc(50% - 1.95em);
@@ -121,8 +136,12 @@ header {
       gap: var(--padding);
       padding: var(--padding);
     }
+    &:not(.fit-height-desktop) {
+      & > div {
+        aspect-ratio: 0.75;
+      }
+    }
     & > div {
-      aspect-ratio: 0.75;
       @include portrait() {
         &.section--grid__text {
           aspect-ratio: initial;
@@ -149,6 +168,26 @@ header {
       .vjs-control-bar {
         display: none;
       }
+      &.contain {
+        img,
+        video {
+          object-fit: contain;
+          padding: 10vw;
+          background: var(--green);
+        }
+      }
+      &.object-top {
+        img,
+        video {
+          object-position: top;
+        }
+      }
+      &.object-bottom {
+        img,
+        video {
+          object-position: bottom;
+        }
+      }
     }
     &__text {
       display: flex;
@@ -158,6 +197,9 @@ header {
         max-width: 40ch;
         & + p {
           margin-top: 1em;
+          @include below($md) {
+            margin-top: 14px;
+          }
         }
       }
     }
@@ -182,6 +224,45 @@ header {
       }
     }
   }
+  .section--text {
+    background-color: #486830;
+    font-size: 4vmax;
+    padding: var(--space-above) 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .section--slides {
+    &:not(.desktop-only) {
+      @include below($md) {
+        position: relative;
+        section {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          z-index: 3;
+          &:not(:first-child) {
+            visibility: hidden;
+          }
+        }
+      }
+    }
+    @include above($md + 1) {
+      position: relative;
+      section {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 3;
+        &:not(:first-child) {
+          visibility: hidden;
+        }
+      }
+    }
+  }
   .join-us {
     position: fixed;
     bottom: 0;
@@ -192,6 +273,11 @@ header {
   }
   .video-ratio {
     aspect-ratio: 0.75;
+  }
+  .video-ratio-mobile {
+    @include below($md) {
+      aspect-ratio: 0.75;
+    }
   }
   .text--uppercase {
     text-transform: uppercase;
@@ -204,5 +290,15 @@ header {
   }
   .user-select-none {
     user-select: none;
+  }
+  .mobile {
+    @include above($md + 1) {
+      display: none !important;
+    }
+  }
+  .desktop {
+    @include below($md) {
+      display: none !important;
+    }
   }
 }
