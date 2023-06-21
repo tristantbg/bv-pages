@@ -79,7 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
         scrollTrigger: {
           trigger: "[join-trigger]",
           start: "bottom bottom",
-          // end: "max",
           toggleActions: "play none none reverse",
         },
       })
@@ -91,47 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         { visibility: "visible", duration: 0.1 }
       );
-
-    // const scrollTriggerOptions = {
-    //   id: "slide-" + i,
-    //   trigger: s,
-    //   start: "bottom bottom",
-    //   scrub: true,
-    //   pin: true,
-    //   pinSpacing: false,
-    //   // markers: true,
-    // };
-
-    // s.scrollTimeline = gsap.timeline({
-    //   defaults: {
-    //     duration: 2,
-    //     // ease: "expo.out",
-    //   },
-    //   scrollTrigger: scrollTriggerOptions,
-    // });
   });
-
-  // const quotes = document.querySelectorAll("section.fit-height");
-  // quotes.forEach((s, i) => {
-  //   const scrollTriggerOptions = {
-  //     id: "slide-" + i,
-  //     trigger: s,
-  //     start: "top top",
-  //     end: "bottom top",
-  //     scrub: true,
-  //     pin: true,
-  //     pinSpacing: false,
-  //     // markers: true,
-  //   };
-
-  //   s.scrollTimeline = gsap.timeline({
-  //     defaults: {
-  //       duration: 3,
-  //       // ease: "expo.out",
-  //     },
-  //     scrollTrigger: scrollTriggerOptions,
-  //   }).to(s, {scaleY: 0, transformOrigin: 'top'});
-  // });
 
   setTimeout(() => {
     ScrollTrigger.refresh();
