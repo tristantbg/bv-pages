@@ -4,7 +4,7 @@ import GiaComponents from "./js/components/GiaComponents";
 gsap.registerPlugin(ScrollTrigger);
 
 const App = {
-  sizeSet: (_) => {
+  sizeSet: () => {
     App.width = window.innerWidth || document.documentElement.clientWidth;
     App.height = window.innerHeight || document.documentElement.clientHeight;
     App.headerHeight = App.header.offsetHeight;
@@ -14,7 +14,7 @@ const App = {
     App.setCSSVariables();
     App.lastWidth = App.width;
   },
-  setCSSVariables: (_) => {
+  setCSSVariables: () => {
     App.container.style.setProperty("--viewport-height", App.height + "px");
     App.container.style.setProperty("--header-height", App.headerHeight + "px");
     if (!App.isMobile || (App.isMobile && App.lastWidth != App.width)) {
@@ -40,12 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
   slides.forEach((s, i) => {
     if (s.classList.contains("desktop-only") && App.isMobile) return;
     const subslides = [...s.querySelectorAll(":scope > section")];
-    console.log(
-      "+=" +
-        subslides
-          .map((s) => s.offsetHeight)
-          .reduce((partialSum, a) => partialSum + a, 0)
-    );
     const scrollTriggerOptions = {
       id: "slide-" + i,
       trigger: s,
@@ -59,7 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
       scrub: true,
       pin: true,
       pinSpacing: true,
-      // markers: true,
     };
 
     s.scrollTimeline = gsap.timeline({
@@ -73,24 +66,24 @@ document.addEventListener("DOMContentLoaded", () => {
     subslides.forEach((sub) => {
       s.scrollTimeline.to(sub, { visibility: "visible" });
     });
-
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: "[join-trigger]",
-          start: "bottom bottom",
-          toggleActions: "play none none reverse",
-        },
-      })
-      .fromTo(
-        ".join-us",
-        {
-          visibility: "hidden",
-          ease: "expo.out",
-        },
-        { visibility: "visible", duration: 0.1 }
-      );
   });
+  
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: "[join-trigger]",
+        start: "bottom bottom",
+        toggleActions: "play none none reverse",
+      },
+    })
+    .fromTo(
+      ".join-us",
+      {
+        visibility: "hidden",
+        ease: "expo.out",
+      },
+      { visibility: "visible", duration: 0.1 }
+    );
 
   setTimeout(() => {
     ScrollTrigger.refresh();
