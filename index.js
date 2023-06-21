@@ -86,10 +86,10 @@ document.addEventListener("DOMContentLoaded", () => {
       .fromTo(
         ".join-us",
         {
-          y: "100%",
+          visibility: "hidden",
           ease: "expo.out",
         },
-        { y: "0%", duration: 0.3 }
+        { visibility: "visible", duration: 0.1 }
       );
 
     // const scrollTriggerOptions = {

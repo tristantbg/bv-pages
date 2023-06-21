@@ -2,16 +2,16 @@
 
 $md: 1024px;
 
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 3;
-  img {
-    display: block;
-  }
-}
+// header {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   z-index: 3;
+//   img {
+//     display: block;
+//   }
+// }
 .bv-page {
   --padding: 14px;
   --font-size: 20px;
@@ -20,7 +20,7 @@ header {
   --space-above: calc(var(--header-height) + var(--padding));
   --green: #486830;
   margin: 0 auto;
-  margin-top: var(--header-height);
+  // margin-top: var(--header-height);
   line-height: 1.35;
   font-size: var(--font-size);
   // @include below($md) {
@@ -92,7 +92,7 @@ header {
     &__media {
       height: 100%;
       pointer-events: none;
-      .video-js {
+      .video-js, .desktop {
         height: 100%;
       }
     }
@@ -242,7 +242,7 @@ header {
           top: 0;
           left: 0;
           width: 100%;
-          z-index: 3;
+          z-index: 1;
           &:not(:first-child) {
             visibility: hidden;
           }
@@ -256,7 +256,7 @@ header {
         top: 0;
         left: 0;
         width: 100%;
-        z-index: 3;
+        z-index: 1;
         &:not(:first-child) {
           visibility: hidden;
         }
