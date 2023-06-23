@@ -4,17 +4,17 @@ import GiaComponents from "./js/components/GiaComponents";
 gsap.registerPlugin(ScrollTrigger);
 
 const App = {
-  sizeSet: () => {
+  sizeSet: (_) => {
     App.width = window.innerWidth || document.documentElement.clientWidth;
     App.height = window.innerHeight || document.documentElement.clientHeight;
     App.headerHeight = App.header.offsetHeight;
-    App.isMobile = App.width <= 767;
+    App.isMobile = App.width <= 1024;
     App.isTouch = window.matchMedia("(pointer: coarse)").matches;
     App.isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
     App.setCSSVariables();
     App.lastWidth = App.width;
   },
-  setCSSVariables: () => {
+  setCSSVariables: (_) => {
     App.container.style.setProperty("--viewport-height", App.height + "px");
     App.container.style.setProperty("--header-height", App.headerHeight + "px");
     if (!App.isMobile || (App.isMobile && App.lastWidth != App.width)) {
@@ -36,23 +36,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   GiaComponents.init();
 
-  const slides = document.querySelectorAll("section.section--slides");
+  const slides = App.isMobile ? document.querySelectorAll("section.section.fit-height:not(.fit-height-desktop)") : document.querySelectorAll("section.section.fit-height, section.section.fit-height-desktop");
   slides.forEach((s, i) => {
     if (s.classList.contains("desktop-only") && App.isMobile) return;
-    const subslides = [...s.querySelectorAll(":scope > section")];
+
     const scrollTriggerOptions = {
       id: "slide-" + i,
       trigger: s,
       start: "bottom bottom",
-      end: () =>
-        "+=" +
-        subslides
-          .map((s) => s.offsetHeight)
-          .reduce((partialSum, a) => partialSum + a, 0) *
-          2,
       scrub: true,
       pin: true,
-      pinSpacing: true,
+      pinSpacing: false,
+      // markers: true,
     };
 
     s.scrollTimeline = gsap.timeline({
@@ -62,29 +57,48 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       scrollTrigger: scrollTriggerOptions,
     });
-
-    subslides.forEach((sub) => {
-      s.scrollTimeline.to(sub, { visibility: "visible" });
-    });
   });
-  
+
   gsap
     .timeline({
       scrollTrigger: {
         trigger: "[join-trigger]",
         start: "bottom bottom",
+        // end: "max",
         toggleActions: "play none none reverse",
       },
     })
     .fromTo(
       ".join-us",
       {
-        visibility: "hidden",
-        ease: "expo.out",
+        autoAlpha: 0,
+        
       },
-      { visibility: "visible", duration: 0.1 }
+      { autoAlpha: 1, duration: 0 }
     );
 
+  // const quotes = document.querySelectorAll("section.fit-height");
+  // quotes.forEach((s, i) => {
+  //   const scrollTriggerOptions = {
+  //     id: "slide-" + i,
+  //     trigger: s,
+  //     start: "top top",
+  //     end: "bottom top",
+  //     scrub: true,
+  //     pin: true,
+  //     pinSpacing: false,
+  //     // markers: true,
+  //   };
+
+  //   s.scrollTimeline = gsap.timeline({
+  //     defaults: {
+  //       duration: 3,
+  //       // ease: "expo.out",
+  //     },
+  //     scrollTrigger: scrollTriggerOptions,
+  //   }).to(s, {scaleY: 0, transformOrigin: 'top'});
+  // });
+  ScrollTrigger.refresh();
   setTimeout(() => {
     ScrollTrigger.refresh();
   }, 1000);
