@@ -15,6 +15,7 @@ $md: 1024px;
 .bv-page {
   --padding: 14px;
   --font-size: 20px;
+  --header-height: 75px;
   --viewport-height: 100vh;
   --section-height: calc(var(--viewport-height) - var(--header-height));
   --space-above: calc(var(--header-height) + var(--padding));
@@ -68,6 +69,9 @@ $md: 1024px;
     justify-content: flex-end;
     line-height: 1.1;
     border-top: 1px solid;
+    @include below($md) {
+      padding-bottom: 3em;
+    }
     &__text {
       max-width: 30ch;
       text-indent: -0.4em;
