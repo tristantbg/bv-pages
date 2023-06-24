@@ -32,14 +32,19 @@ window.addEventListener("resize", App.sizeSet, false);
 document.addEventListener("DOMContentLoaded", () => {
   App.header = document.querySelector("header");
   App.container = document.querySelector(".bv-page");
+  App.join = App.container.querySelector(".join-us");
   App.sizeSet();
 
   GiaComponents.init();
 
-  const slides = App.isMobile ? document.querySelectorAll("section.section.fit-height:not(.fit-height-desktop)") : document.querySelectorAll("section.section.fit-height, section.section.fit-height-desktop");
+  const slides = App.isMobile
+    ? document.querySelectorAll(
+        "section.section.fit-height:not(.fit-height-desktop)"
+      )
+    : document.querySelectorAll(
+        "section.section.fit-height, section.section.fit-height-desktop"
+      );
   slides.forEach((s, i) => {
-    if (s.classList.contains("desktop-only") && App.isMobile) return;
-
     const scrollTriggerOptions = {
       id: "slide-" + i,
       trigger: s,
@@ -47,57 +52,24 @@ document.addEventListener("DOMContentLoaded", () => {
       scrub: true,
       pin: true,
       pinSpacing: false,
-      // markers: true,
+      onEnter: () => {
+        if (s.hasAttribute("join-enable")) App.join.style.display = "block";
+        if (s.hasAttribute("join-disable")) App.join.style.display = "none";
+      },
+      onEnterBack: () => {
+        if (s.hasAttribute("join-enable")) App.join.style.display = "block";
+        if (s.hasAttribute("join-disable")) App.join.style.display = "none";
+      },
     };
 
     s.scrollTimeline = gsap.timeline({
       defaults: {
         duration: 2,
-        // ease: "expo.out",
       },
       scrollTrigger: scrollTriggerOptions,
     });
   });
 
-  gsap
-    .timeline({
-      scrollTrigger: {
-        trigger: "[join-trigger]",
-        start: "bottom bottom",
-        // end: "max",
-        toggleActions: "play none none reverse",
-      },
-    })
-    .fromTo(
-      ".join-us",
-      {
-        autoAlpha: 0,
-        
-      },
-      { autoAlpha: 1, duration: 0 }
-    );
-
-  // const quotes = document.querySelectorAll("section.fit-height");
-  // quotes.forEach((s, i) => {
-  //   const scrollTriggerOptions = {
-  //     id: "slide-" + i,
-  //     trigger: s,
-  //     start: "top top",
-  //     end: "bottom top",
-  //     scrub: true,
-  //     pin: true,
-  //     pinSpacing: false,
-  //     // markers: true,
-  //   };
-
-  //   s.scrollTimeline = gsap.timeline({
-  //     defaults: {
-  //       duration: 3,
-  //       // ease: "expo.out",
-  //     },
-  //     scrollTrigger: scrollTriggerOptions,
-  //   }).to(s, {scaleY: 0, transformOrigin: 'top'});
-  // });
   ScrollTrigger.refresh();
   setTimeout(() => {
     ScrollTrigger.refresh();
