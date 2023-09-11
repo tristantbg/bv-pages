@@ -197,6 +197,7 @@ $md: 1024px;
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: var(--padding);
       p {
         max-width: 40ch;
         & + p {
@@ -311,4 +312,11 @@ $md: 1024px;
 
 .bv-page ~ br {
   display: none;
+}
+
+footer#footer, .c-footercopyright {
+  background: white;
+  position: relative;
+  padding-top: 1px;
+  z-index: 10;
 }

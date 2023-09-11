@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const slides = App.isMobile
     ? document.querySelectorAll(
-        "section.section.fit-height:not(.fit-height-desktop)"
+        "section.section.fit-height:not(.fit-height-desktop), section[join-enable], section[join-disable]"
       )
     : document.querySelectorAll(
         "section.section.fit-height, section.section.fit-height-desktop"
@@ -50,7 +50,9 @@ document.addEventListener("DOMContentLoaded", () => {
       trigger: s,
       start: "bottom bottom",
       scrub: true,
-      pin: true,
+      pin: App.isMobile
+        ? !s.hasAttribute("join-enable") && !s.hasAttribute("join-disable")
+        : true,
       pinSpacing: false,
       onEnter: () => {
         if (s.hasAttribute("join-enable")) App.join.style.display = "block";
