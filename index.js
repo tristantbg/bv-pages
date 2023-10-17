@@ -101,7 +101,13 @@ class ProductsGrid extends HTMLElement {
         const image = htmlDocument.documentElement.querySelector(
           this.selectors.image
         );
-        return title.outerHTML + price.outerHTML + image.outerHTML;
+        return `
+          <div class="product-item">
+            <div class="product-image">${image.outerHTML}</div>
+            <div class="product-title">${title.innerText}</div>
+            <div class="product-price">${price.innerText}</div>
+          </div>
+        `;
       })
       .catch((err) =>
         console.error(`Failed to load content for handle: ${handle}`, err)
