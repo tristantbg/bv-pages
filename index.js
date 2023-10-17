@@ -84,7 +84,7 @@ class ProductsGrid extends HTMLElement {
   fetchProductCardHTML(handle) {
     const productTileTemplateUrl = `${window.location.origin}/${
       window.location.pathname.split("/")[1]
-    }/${handle}`;
+    }/${handle}.html`;
     // console.log(productTileTemplateUrl);
     return fetch(productTileTemplateUrl)
       .then((res) => res.text())
