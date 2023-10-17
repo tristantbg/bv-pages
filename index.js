@@ -102,11 +102,11 @@ class ProductsGrid extends HTMLElement {
           this.selectors.image
         );
         return `
-          <div class="product-item">
+          <a href="${productTileTemplateUrl}" class="product-item">
             <div class="product-image">${image.outerHTML}</div>
             <div class="product-title">${title.innerText}</div>
             <div class="product-price">${price.innerText}</div>
-          </div>
+          </a>
         `;
       })
       .catch((err) =>
