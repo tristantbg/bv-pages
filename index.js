@@ -82,6 +82,7 @@ class ProductsGrid extends HTMLElement {
     this.init();
   }
   fetchProductCardHTML(handle) {
+    const that = this
     const productTileTemplateUrl = `${window.location.origin}/${
       window.location.pathname.split("/")[1]
     }/${handle}.html`;
@@ -93,13 +94,13 @@ class ProductsGrid extends HTMLElement {
         const parser = new DOMParser();
         const htmlDocument = parser.parseFromString(text, "text/html");
         const title = htmlDocument.documentElement.querySelector(
-          this.selectors.title
+          that.selectors.title
         );
         const price = htmlDocument.documentElement.querySelector(
-          this.selectors.price
+          that.selectors.price
         );
         const image = htmlDocument.documentElement.querySelector(
-          this.selectors.image
+          that.selectors.image
         );
         return `
           <a href="${productTileTemplateUrl}" class="product-item">
