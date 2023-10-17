@@ -1,10 +1,139 @@
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import GiaComponents from "./js/components/GiaComponents";
-gsap.registerPlugin(ScrollTrigger);
+
+class ImageFlipper extends HTMLElement {
+  constructor() {
+    super();
+    this.images = this.querySelectorAll("img");
+    this.init();
+  }
+  init() {
+    this.images[0].classList.add("active");
+    this.tl = gsap.timeline({
+      defaults: {
+        duration: 2.5,
+        ease: "expo.inOut",
+      },
+      // yoyo: true,
+      repeat: -1,
+    });
+    const that = this;
+    this.tl.fromTo(
+      this.images[0],
+      { rotateX: 0 },
+      {
+        rotateX: 180,
+        force3D: true,
+        onUpdate: function () {
+          this.targets()[0].classList.toggle("active", this.progress() < 0.5);
+        },
+      }
+    );
+    this.tl.fromTo(
+      this.images[1],
+      { rotateX: -180 },
+      {
+        rotateX: 0,
+        force3D: true,
+        onUpdate: function () {
+          this.targets()[0].classList.toggle("active", this.progress() > 0.5);
+        },
+      },
+      "<"
+    );
+    this.tl.fromTo(
+      this.images[1],
+      { rotateX: 0 },
+      {
+        rotateX: 180,
+        force3D: true,
+        onUpdate: function () {
+          this.targets()[0].classList.toggle("active", this.progress() < 0.5);
+        },
+      },
+      "+=1"
+    );
+    this.tl.fromTo(
+      this.images[0],
+      { rotateX: -180 },
+      {
+        rotateX: 0,
+        force3D: true,
+        onUpdate: function () {
+          this.targets()[0].classList.toggle("active", this.progress() > 0.5);
+        },
+      },
+      "<"
+    );
+  }
+}
+
+customElements.define("image-flipper", ImageFlipper);
+
+class ProductsGrid extends HTMLElement {
+  constructor() {
+    super();
+    this.GRID_LOADED_CLASS = "loaded";
+    this.selectors = {
+      title: ".c-product__name",
+      price: ".c-price__value--current",
+      image: ".c-productcarousel__slide:first-child img",
+    };
+    this.ids = this.dataset.ids.split(",");
+    this.init();
+  }
+  fetchProductCardHTML(handle) {
+    const productTileTemplateUrl = `${window.location.origin}/${
+      window.location.pathname.split("/")[1]
+    }/${handle}`;
+    // console.log(productTileTemplateUrl);
+    return fetch(productTileTemplateUrl)
+      .then((res) => res.text())
+      .then((res) => {
+        const text = res;
+        const parser = new DOMParser();
+        const htmlDocument = parser.parseFromString(text, "text/html");
+        const title = htmlDocument.documentElement.querySelector(
+          this.selectors.title
+        );
+        const price = htmlDocument.documentElement.querySelector(
+          this.selectors.price
+        );
+        const image = htmlDocument.documentElement.querySelector(
+          this.selectors.image
+        );
+        return title.outerHTML + price.outerHTML + image.outerHTML;
+      })
+      .catch((err) =>
+        console.error(`Failed to load content for handle: ${handle}`, err)
+      );
+  }
+
+  async setupGrid(grid) {
+    if (this.ids.length) {
+      const requests = this.ids.map(this.fetchProductCardHTML);
+      const responses = await Promise.all(requests);
+      const productCards = responses.join("");
+      grid.innerHTML = productCards;
+      grid.classList.add(this.GRID_LOADED_CLASS);
+      grid.classList.add("grid");
+    } else {
+      grid.innerHTML = ``;
+    }
+
+    // const event = new CustomEvent("products:init-product-grid", {
+    //   detail: { wishlist: wishlist },
+    // });
+    // document.dispatchEvent(event);
+  }
+  init() {
+    this.setupGrid();
+  }
+}
+
+customElements.define("products-grid", ProductsGrid);
 
 const App = {
-  sizeSet: (_) => {
+  sizeSet: () => {
     App.width = window.innerWidth || document.documentElement.clientWidth;
     App.height = window.innerHeight || document.documentElement.clientHeight;
     App.headerHeight = App.header.offsetHeight;
@@ -14,7 +143,7 @@ const App = {
     App.setCSSVariables();
     App.lastWidth = App.width;
   },
-  setCSSVariables: (_) => {
+  setCSSVariables: () => {
     App.container.style.setProperty("--viewport-height", App.height + "px");
     App.container.style.setProperty("--header-height", App.headerHeight + "px");
     if (!App.isMobile || (App.isMobile && App.lastWidth != App.width)) {
@@ -32,48 +161,5 @@ window.addEventListener("resize", App.sizeSet, false);
 document.addEventListener("DOMContentLoaded", () => {
   App.header = document.querySelector("header");
   App.container = document.querySelector(".bv-page");
-  App.join = App.container.querySelector(".join-us");
   App.sizeSet();
-
-  GiaComponents.init();
-
-  const slides = App.isMobile
-    ? document.querySelectorAll(
-        "section.section.fit-height:not(.fit-height-desktop), section[join-enable], section[join-disable]"
-      )
-    : document.querySelectorAll(
-        "section.section.fit-height, section.section.fit-height-desktop"
-      );
-  slides.forEach((s, i) => {
-    const scrollTriggerOptions = {
-      id: "slide-" + i,
-      trigger: s,
-      start: "bottom bottom",
-      scrub: true,
-      pin: App.isMobile
-        ? !s.hasAttribute("join-enable") && !s.hasAttribute("join-disable")
-        : true,
-      pinSpacing: false,
-      onEnter: () => {
-        if (s.hasAttribute("join-enable")) App.join.style.display = "block";
-        if (s.hasAttribute("join-disable")) App.join.style.display = "none";
-      },
-      onEnterBack: () => {
-        if (s.hasAttribute("join-enable")) App.join.style.display = "block";
-        if (s.hasAttribute("join-disable")) App.join.style.display = "none";
-      },
-    };
-
-    s.scrollTimeline = gsap.timeline({
-      defaults: {
-        duration: 2,
-      },
-      scrollTrigger: scrollTriggerOptions,
-    });
-  });
-
-  ScrollTrigger.refresh();
-  setTimeout(() => {
-    ScrollTrigger.refresh();
-  }, 1000);
 });
