@@ -111,6 +111,28 @@ $md: 1024px;
       }
     }
   }
+  iframe-grid {
+    --header-offset: 12rem;
+    overflow: hidden;
+    .iframe-grid__container {
+      position: relative;
+      height: calc(
+        ((100vw - var(--padding) * 5) / 4) / 0.65 + var(--padding) * 10
+      );
+      @include below($md) {
+        height: calc(var(--section-height) - 2rem);
+      }
+    }
+    .iframe-grid__iframe {
+      position: absolute;
+      border: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: calc(100% + var(--header-offset));
+      transform: translateY(calc(-1 * var(--header-offset)));
+    }
+  }
 }
 
 .bv-page ~ br {

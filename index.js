@@ -1,4 +1,5 @@
 import '~/js/components/ImageFlipper'
+import '~/js/components/IframeGrid'
 // import '~/js/components/ProductsGrid'
 
 const App = {
