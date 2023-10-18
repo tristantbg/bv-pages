@@ -10,6 +10,7 @@
           marginwidth="0"
           scrolling="no"
           allow="autoplay"
+          target="_parent"
         ></iframe>
       </div>
     `}init(){this.createMarkup()}}customElements.define("iframe-grid",iL);let iB={sizeSet:()=>{iB.width=window.innerWidth||document.documentElement.clientWidth,iB.height=window.innerHeight||document.documentElement.clientHeight,iB.headerHeight=iB.header.offsetHeight,iB.isMobile=iB.width<=1024,iB.isTouch=window.matchMedia("(pointer: coarse)").matches,iB.isSafari=/^((?!chrome|android).)*safari/i.test(navigator.userAgent),iB.setCSSVariables(),iB.lastWidth=iB.width},setCSSVariables:()=>{iB.container.style.setProperty("--viewport-height",iB.height+"px"),iB.container.style.setProperty("--header-height",iB.headerHeight+"px"),(!iB.isMobile||iB.isMobile&&iB.lastWidth!=iB.width)&&iB.container.style.setProperty("--viewport-height-init",iB.height+"px"),iB.container.classList.toggle("is-safari",iB.isSafari)}};window.addEventListener("resize",iB.sizeSet,!1),document.addEventListener("DOMContentLoaded",()=>{iB.header=document.querySelector("header"),iB.container=document.querySelector(".bv-page"),iB.sizeSet()})}();

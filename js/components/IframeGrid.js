@@ -18,6 +18,7 @@ class IframeGrid extends HTMLElement {
           marginwidth="0"
           scrolling="no"
           allow="autoplay"
+          target="_parent"
         ></iframe>
       </div>
     `;

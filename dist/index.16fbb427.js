@@ -10,6 +10,7 @@ function t(t){if(void 0===t)throw ReferenceError("this hasn't been initialised -
           marginwidth="0"
           scrolling="no"
           allow="autoplay"
+          target="_parent"
         ></iframe>
       </div>
     `}init(){this.createMarkup()}}customElements.define("iframe-grid",id);const i_={sizeSet:()=>{i_.width=window.innerWidth||document.documentElement.clientWidth,i_.height=window.innerHeight||document.documentElement.clientHeight,i_.headerHeight=i_.header.offsetHeight,i_.isMobile=i_.width<=1024,i_.isTouch=window.matchMedia("(pointer: coarse)").matches,i_.isSafari=/^((?!chrome|android).)*safari/i.test(navigator.userAgent),i_.setCSSVariables(),i_.lastWidth=i_.width},setCSSVariables:()=>{i_.container.style.setProperty("--viewport-height",i_.height+"px"),i_.container.style.setProperty("--header-height",i_.headerHeight+"px"),(!i_.isMobile||i_.isMobile&&i_.lastWidth!=i_.width)&&i_.container.style.setProperty("--viewport-height-init",i_.height+"px"),i_.container.classList.toggle("is-safari",i_.isSafari)}};window.addEventListener("resize",i_.sizeSet,!1),document.addEventListener("DOMContentLoaded",()=>{i_.header=document.querySelector("header"),i_.container=document.querySelector(".bv-page"),i_.sizeSet()});
