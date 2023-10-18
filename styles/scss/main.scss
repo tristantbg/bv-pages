@@ -112,15 +112,17 @@ $md: 1024px;
     }
   }
   iframe-grid {
-    --header-offset: 12rem;
+    --header-offset: calc(var(--header-height) + 9rem);
     overflow: hidden;
     .iframe-grid__container {
       position: relative;
       height: calc(
-        ((100vw - var(--padding) * 5) / 4) / 0.65 + var(--padding) * 10
+        (100vw - var(--padding) * 5) / 4 / 0.65 - var(--padding) * 5
       );
       @include below($md) {
-        height: calc(var(--section-height) - 2rem);
+        height: calc(
+          ((100vw - var(--padding) * 3) / 2 / 0.65 - var(--padding) * 3) * 2
+        );
       }
     }
     .iframe-grid__iframe {
