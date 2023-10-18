@@ -60,11 +60,15 @@ $md: 1024px;
     height: calc(var(--section-height) - 10rem);
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     width: 100%;
+    @include below($md) {
+      height: calc(var(--section-height) - 2rem);
+    }
     .image-flipper__text {
       z-index: 2;
       position: absolute;
       top: 0;
       left: 0;
+      right: 0;
       padding: var(--padding);
     }
     .image-flipper__title {
