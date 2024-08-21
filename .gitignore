@@ -2,5 +2,5 @@
 .parcel-cache
 yarn.lock
 node_modules
-dist-no
+dist
 .DS_Store
