@@ -33,18 +33,62 @@
 
   <body page-type="home">
     <header>
-      <picture>
+      <picture class="hidden 2xl:block">
         <img srcset="/header.7ae4f1ae.png 400w, /header.8c7780bd.png 800w, /header.bb2cda62.png 1200w, /header.b10e39e0.png 1920w, /header.1a86d2a9.png 3000w" width="100%">
+      </picture>
+      <picture class="hidden sm:block 2xl:hidden">
+        <img srcset="/header-laptop.24e7af93.png 400w, /header-laptop.e70659c1.png 800w, /header-laptop.5f6031c5.png 1200w, /header-laptop.f6104654.png 1920w, /header-laptop.3c2a315d.png 3000w" width="100%">
+      </picture>
+      <picture class="block sm:hidden">
+        <img srcset="/header-mobile.d6154d75.png 400w, /header-mobile.e14a6a93.png 800w, /header-mobile.126f2863.png 1200w, /header-mobile.e397a916.png 1920w, /header-mobile.c11df6cc.png 3000w" width="100%">
       </picture>
     </header>
 
     <div class="bv-page">
       <div class="page--sections">
-        <div class="bg-white" x-data="{selected:null}">
-          <ul class="shadow-box">
+        <section class="section section--media">
+          <div class="section--media__media">
+            <img src="https://bottega-veneta.dam.kering.com/m/35934a1684f1f8ee/Large2-1_Landing_page.jpg" alt="">
+          </div>
+        </section>
+        <section class="section grid md:grid-cols-2 gap-[--padding] p-[--padding]">
+          <div>
+            <h1 class="uppercase">Bottega Veneta and sustainability</h1>
+          </div>
+          <div class="reading-text">
+            <p>
+              Bottega Veneta products are made to last for generations with an
+              uncompromising approach to durability and quality. As such,
+              sustainability is intrinsic to our history and our values.
+            </p>
+            <p>
+              As part of the Kering group, we uphold the highest sustainability
+              standards in the luxury industry. Our commitment is to prioritize
+              value over volume and to decouple economic growth from material
+              usage, embedding our vision of modern and responsible luxury, with
+              Made in Italy savoir-faire at its heart.
+            </p>
+          </div>
+        </section>
+        <section class="section section--media">
+          <div class="section--media__media">
+            <picture class="hidden sm:block 2xl:hidden">
+              <img srcset="/texture.d3fe0c44.jpeg 400w, /texture.1e500f11.jpeg 800w, /texture.f1023c01.jpeg 1200w, /texture.d1255300.jpeg 1920w, /texture.144cba4e.jpeg 3000w" width="100%">
+            </picture>
+          </div>
+        </section>
+        <section class="section p-[--padding] container mx-auto" x-data="{selected:null}">
+          <div class="uppercase mb-[--padding]">
+            <p>
+              Today, we build on our heritage in exceptional, enduring craft
+              with an ambitious social and environmental sustainability program,
+              structured around three key pillars:
+            </p>
+          </div>
+          <ul class="border-t border-gray-200">
             <li class="relative border-b border-gray-200">
-              <button type="button" class="w-full px-8 py-6 text-left" @click="selected !== 1 ? selected = 1 : selected = null">
-                <div class="flex items-center justify-between">
+              <button type="button" class="w-full py-[--padding] text-left" @click="selected !== 1 ? selected = 1 : selected = null">
+                <div class="flex items-center justify-between uppercase">
                   <span> Should I use reCAPTCHA v2 or v3? </span>
                   <div class="toggle" x-text="selected == 1 ? '-' : '+'"></div>
                 </div>
@@ -73,8 +117,8 @@
             </li>
 
             <li class="relative border-b border-gray-200">
-              <button type="button" class="w-full px-8 py-6 text-left" @click="selected !== 2 ? selected = 2 : selected = null">
-                <div class="flex items-center justify-between">
+              <button type="button" class="w-full py-[--padding] text-left" @click="selected !== 2 ? selected = 2 : selected = null">
+                <div class="flex items-center justify-between uppercase">
                   <span>
                     I'd like to run automated tests with reCAPTCHA. What should
                     I do?
@@ -100,8 +144,8 @@
             </li>
 
             <li class="relative border-b border-gray-200">
-              <button type="button" class="w-full px-8 py-6 text-left" @click="selected !== 3 ? selected = 3 : selected = null">
-                <div class="flex items-center justify-between">
+              <button type="button" class="w-full py-[--padding] text-left" @click="selected !== 3 ? selected = 3 : selected = null">
+                <div class="flex items-center justify-between uppercase">
                   <span> Can I run reCAPTCHA v2 and v3 on the same page? </span>
                   <div class="toggle" x-text="selected == 3 ? '-' : '+'"></div>
                 </div>
@@ -143,7 +187,7 @@
               </div>
             </li>
           </ul>
-        </div>
+        </section>
       </div>
     </div>
     <script src="https://cdn.tailwindcss.com"></script>

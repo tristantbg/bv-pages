@@ -42,7 +42,7 @@
 
   <body page-type="home">
     <header>
-      <picture>
+      <picture class="hidden 2xl:block">
         <img
           srcset="
             ./assets/header.png?as=png&width=400   400w,
@@ -54,20 +54,99 @@
           width="100%"
         />
       </picture>
+      <picture class="hidden sm:block 2xl:hidden">
+        <img
+          srcset="
+            ./assets/header-laptop.png?as=png&width=400   400w,
+            ./assets/header-laptop.png?as=png&width=800   800w,
+            ./assets/header-laptop.png?as=png&width=1200 1200w,
+            ./assets/header-laptop.png?as=png&width=1920 1920w,
+            ./assets/header-laptop.png?as=png&width=3000 3000w
+          "
+          width="100%"
+        />
+      </picture>
+      <picture class="block sm:hidden">
+        <img
+          srcset="
+            ./assets/header-mobile.png?as=png&width=400   400w,
+            ./assets/header-mobile.png?as=png&width=800   800w,
+            ./assets/header-mobile.png?as=png&width=1200 1200w,
+            ./assets/header-mobile.png?as=png&width=1920 1920w,
+            ./assets/header-mobile.png?as=png&width=3000 3000w
+          "
+          width="100%"
+        />
+      </picture>
     </header>
 
     <div class="bv-page">
       <div class="page--sections">
-        <div class="bg-white" x-data="{selected:null}">
-          <ul class="shadow-box">
+        <section class="section section--media">
+          <div class="section--media__media">
+            <img
+              src="https://bottega-veneta.dam.kering.com/m/35934a1684f1f8ee/Large2-1_Landing_page.jpg"
+              alt=""
+            />
+          </div>
+        </section>
+        <section
+          class="section grid md:grid-cols-2 gap-[--padding] p-[--padding]"
+        >
+          <div>
+            <h1 class="uppercase">Bottega Veneta and sustainability</h1>
+          </div>
+          <div class="reading-text">
+            <p>
+              Bottega Veneta products are made to last for generations with an
+              uncompromising approach to durability and quality. As such,
+              sustainability is intrinsic to our history and our values.
+            </p>
+            <p>
+              As part of the Kering group, we uphold the highest sustainability
+              standards in the luxury industry. Our commitment is to prioritize
+              value over volume and to decouple economic growth from material
+              usage, embedding our vision of modern and responsible luxury, with
+              Made in Italy savoir-faire at its heart.
+            </p>
+          </div>
+        </section>
+        <section class="section section--media">
+          <div class="section--media__media">
+            <picture class="hidden sm:block 2xl:hidden">
+              <img
+                srcset="
+                  ./assets/images/texture.jpg?as=jpg&width=400   400w,
+                  ./assets/images/texture.jpg?as=jpg&width=800   800w,
+                  ./assets/images/texture.jpg?as=jpg&width=1200 1200w,
+                  ./assets/images/texture.jpg?as=jpg&width=1920 1920w,
+                  ./assets/images/texture.jpg?as=jpg&width=3000 3000w
+                "
+                width="100%"
+              />
+            </picture>
+          </div>
+        </section>
+        <section
+          class="section p-[--padding] container mx-auto"
+          x-data="{selected:null}"
+        >
+          <div class="uppercase mb-[--padding]">
+            <p>
+              Today, we build on our heritage in exceptional, enduring craft
+              with an ambitious social and environmental sustainability program,
+              structured around three key pillars:
+            </p>
+          </div>
+          <ul class="border-t border-gray-200">
             <li class="relative border-b border-gray-200">
               <button
                 type="button"
-                class="w-full px-8 py-6 text-left"
+                class="w-full py-[--padding] text-left"
                 @click="selected !== 1 ? selected = 1 : selected = null"
               >
-                <div class="flex items-center justify-between">
-                  <span> Should I use reCAPTCHA v2 or v3? </span>
+                <div class="flex items-center justify-between uppercase">
+                  <span>1. Embracing a culture of sustainability</span>
                   <div class="toggle" x-text="selected == 1 ? '-' : '+'"></div>
                 </div>
               </button>
@@ -102,14 +181,11 @@
             <li class="relative border-b border-gray-200">
               <button
                 type="button"
-                class="w-full px-8 py-6 text-left"
+                class="w-full py-[--padding] text-left"
                 @click="selected !== 2 ? selected = 2 : selected = null"
               >
-                <div class="flex items-center justify-between">
-                  <span>
-                    I'd like to run automated tests with reCAPTCHA. What should
-                    I do?
-                  </span>
+                <div class="flex items-center justify-between uppercase">
+                  <span>2. Absolute impact reduction</span>
                   <div class="toggle" x-text="selected == 2 ? '-' : '+'"></div>
                 </div>
               </button>
@@ -138,11 +214,11 @@
             <li class="relative border-b border-gray-200">
               <button
                 type="button"
-                class="w-full px-8 py-6 text-left"
+                class="w-full py-[--padding] text-left"
                 @click="selected !== 3 ? selected = 3 : selected = null"
               >
-                <div class="flex items-center justify-between">
-                  <span> Can I run reCAPTCHA v2 and v3 on the same page? </span>
+                <div class="flex items-center justify-between uppercase">
+                  <span>3. Preserving our heritage of innovative craft</span>
                   <div class="toggle" x-text="selected == 3 ? '-' : '+'"></div>
                 </div>
               </button>
@@ -188,7 +264,7 @@
               </div>
             </li>
           </ul>
-        </div>
+        </section>
       </div>
     </div>
     <script src="https://cdn.tailwindcss.com"></script>
