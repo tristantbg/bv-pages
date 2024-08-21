@@ -11,12 +11,13 @@
     "clean": "rm -rf .parcel-cache && rm -rf dist"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "2.9.2",
+    "@parcel/transformer-sass": "2.12.0",
     "parcel": "^2.12.0",
     "process": "^0.11.10",
     "sharp": "^0.31.3"
   },
   "dependencies": {
+    "@parcel/config-default": "^2.12.0",
     "gia": "^1.0.1",
     "gsap": "^3.12.5",
     "lodash": "^4.17.21",
