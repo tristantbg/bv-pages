@@ -1,6 +1,29 @@
 @import "~rupture-sass/rupture";
 
-$md: 1024px;
+@mixin hide-scrollbar() {
+  scrollbar-width: none;
+  &::-webkit-scrollbar-track {
+    display: none;
+    -webkit-box-shadow: inset 0 0 0px rgba(0, 0, 0, 0);
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0px;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    display: none;
+    background-color: transparent;
+    margin-left: 0;
+  }
+  &::-webkit-scrollbar-thumb {
+    display: none;
+  }
+}
+
+$sm: 640px;
+$md: 768px;
 
 header {
   position: sticky;
@@ -14,6 +37,7 @@ header {
 }
 .bv-page {
   --padding: 24px;
+  --padding-container: 10vw;
   --font-size: 20px;
   --viewport-height: 100dvh;
   --green: #486830;
@@ -34,6 +58,11 @@ header {
     line-height: 1.35;
     font-weight: 400;
   }
+  h2 {
+    font-size: calc(var(--font-size) * 1.3);
+    line-height: 1;
+    font-weight: 400;
+  }
   img,
   video {
     display: block;
@@ -52,6 +81,109 @@ header {
     line-height: 27px;
     p + p {
       margin-top: 1em;
+    }
+  }
+  .section--accordion {
+    .accordion--content,
+    .subsection {
+      display: grid;
+      gap: var(--padding);
+    }
+    .accordion--content {
+      padding-top: 1rem;
+      padding-bottom: 3rem;
+    }
+    @include below($sm) {
+      .accordion--toggle,
+      h2,
+      .reading-text {
+        padding-left: var(--padding);
+        padding-right: var(--padding);
+      }
+    }
+  }
+  .inline-slider {
+    width: 100vw;
+    @include below($sm) {
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      @include hide-scrollbar;
+    }
+    .inline-slider__container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--padding);
+      @include below($sm) {
+        flex-wrap: nowrap;
+        gap: 0;
+      }
+    }
+    img {
+      display: block;
+      height: 10rem;
+      max-width: max-content;
+      @include below($sm) {
+        height: 25rem;
+        scroll-snap-align: start;
+      }
+    }
+  }
+
+  .timeline {
+    display: grid;
+    gap: var(--padding);
+    width: calc(100vw - var(--padding-container) * 2);
+    @include above($md + 1) {
+      display: flex;
+      overflow-x: scroll;
+      @include hide-scrollbar;
+      gap: 0;
+    }
+    .timeline--section {
+      display: flex;
+      flex-direction: column;
+      @include below($md) {
+        overflow-x: scroll;
+        @include hide-scrollbar;
+      }
+      .timeline--title {
+        padding-bottom: var(--padding);
+        position: sticky;
+        width: min-content;
+        display: inline-block;
+        left: 0;
+        white-space: nowrap;
+        padding-right: var(--padding);
+      }
+      .timeline--items {
+        display: flex;
+        &::before {
+          content: "";
+          min-width: 5rem;
+          height: 100%;
+          border-top: 1px solid;
+          display: block;
+        }
+      }
+      article {
+        border-top: 1px solid;
+        display: flex;
+        flex-direction: column;
+        gap: var(--padding);
+        padding-right: var(--padding);
+        p {
+          width: 30ch;
+        }
+        &::before {
+          content: "";
+          display: block;
+          height: 5rem;
+          width: 1px;
+          background: black;
+          position: sticky;
+          left: var(--padding);
+        }
+      }
     }
   }
 }

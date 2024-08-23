@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <!-- Priority tags. These must come first. -->
@@ -91,7 +91,7 @@
           </div>
         </section>
         <section
-          class="section grid md:grid-cols-2 gap-[--padding] p-[--padding]"
+          class="section grid gap-[--padding] p-[--padding] md:grid-cols-2"
         >
           <div>
             <h1 class="uppercase">Bottega Veneta and sustainability</h1>
@@ -128,145 +128,611 @@
           </div>
         </section>
         <section
-          class="section p-[--padding] container mx-auto"
-          x-data="{selected:null}"
+          class="section section--accordion py-10 md:px-[--padding-container] md:py-20"
         >
-          <div class="uppercase mb-[--padding]">
+          <div class="mb-[--padding] px-[--padding] uppercase md:px-0">
             <p>
               Today, we build on our heritage in exceptional, enduring craft
               with an ambitious social and environmental sustainability program,
               structured around three key pillars:
             </p>
           </div>
-          <ul class="border-t border-gray-200">
-            <li class="relative border-b border-gray-200">
+          <ul class="border-t border-black">
+            <li class="relative border-b border-black" x-data="{selected:null}">
               <button
                 type="button"
                 class="w-full py-[--padding] text-left"
                 @click="selected !== 1 ? selected = 1 : selected = null"
               >
-                <div class="flex items-center justify-between uppercase">
+                <div
+                  class="accordion--toggle flex items-start justify-between uppercase"
+                >
                   <span>1. Embracing a culture of sustainability</span>
                   <div class="toggle" x-text="selected == 1 ? '-' : '+'"></div>
                 </div>
               </button>
 
               <div
-                class="relative overflow-hidden transition-all max-h-0 duration-300"
-                style=""
+                class="relative max-h-0 overflow-hidden transition-all duration-300"
                 x-ref="container1"
                 x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''"
               >
-                <div class="p-6">
-                  <p>
-                    reCAPTCHA v2 is not going away! We will continue to fully
-                    support and improve security and usability for v2.
-                  </p>
-                  <p>
-                    reCAPTCHA v3 is intended for power users, site owners that
-                    want more data about their traffic, and for use cases in
-                    which it is not appropriate to show a challenge to the user.
-                  </p>
-                  <p>
-                    For example, a registration page might still use reCAPTCHA
-                    v2 for a higher-friction challenge, whereas more common
-                    actions like sign-in, searches, comments, or voting might
-                    use reCAPTCHA v3. To see more details, see the reCAPTCHA v3
-                    developer guide.
-                  </p>
+                <div class="accordion--content">
+                  <article class="subsection">
+                    <h2>Responsible Supply Chain</h2>
+                    <div class="reading-text">
+                      <p>
+                        More than 95% of Bottega Veneta’s direct suppliers are
+                        based in Italy. Our supplier list is publicly available
+                        here and it is updated every six months.
+                      </p>
+                      <p>
+                        All our suppliers and subcontractors are required to
+                        comply with Kering’s Sustainability Principles, Code of
+                        Ethics, Product Restricted Substances List (PRSL), and
+                        Statement on Modern Slavery. All our operations are
+                        monitored pursuant to the SA8000 certificationmanagement
+                        system, the leading certification on workplace standards
+                        and practices.
+                      </p>
+                      <p>
+                        For the duration of all supplier agreements, we follow
+                        rigorous monitoring procedures with annual audits
+                        conducted by specialized teams from Kering and
+                        third-party entities. In the event of any compliance
+                        discrepancies, comprehensive corrective action plans are
+                        formulated, followed by subsequent audits to ensure full
+                        compliance. Every year, we offer training seminars
+                        tailored to each product category and designed to impart
+                        best sustainability practices and insights, including
+                        chemical management process.
+                      </p>
+                    </div>
+                    <div class="inline-slider">
+                      <div class="inline-slider__container">
+                        <img
+                          src="./assets/images/1/1.jpeg?as=jpg&width=400"
+                          height="100%"
+                          width="auto"
+                        />
+                        <img
+                          src="./assets/images/1/2.jpeg?as=jpg&width=400"
+                          height="100%"
+                          width="auto"
+                        />
+                        <img
+                          src="./assets/images/1/3.jpeg?as=jpg&width=400"
+                          height="100%"
+                          width="auto"
+                        />
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="subsection">
+                    <h2>Green Atelier App</h2>
+                    <div class="reading-text">
+                      <p>
+                        In 2021, Bottega Veneta launched the Green Atelier app,
+                        an internal tool that aims at evaluating the
+                        sustainability of our products based on five
+                        sustainability indicators related to materials
+                        (traceability, conformity to Kering standards and
+                        environmental impact) and suppliers (advance chemical
+                        management and working conditions). Through the app, we
+                        ensure that all employees have access to detailed
+                        sustainability data, speak a common language, and are
+                        informed and empowered to make decisions in line with
+                        the highest sustainability standards.
+                      </p>
+                    </div>
+                  </article>
+
+                  <article class="subsection">
+                    <h2>Internal Target Setting</h2>
+                    <div class="reading-text">
+                      <p>
+                        10% of the Bottega Veneta annual employee bonus is
+                        dependent on sustainability targets. These targets were
+                        set across every department since 2019 and reflect the
+                        daily operations of each team to encourage inclusive
+                        engagement.
+                      </p>
+                    </div>
+                    <div class="inline-slider">
+                      <div class="inline-slider__container">
+                        <img
+                          src="./assets/images/1/4.jpeg?as=jpg&width=400"
+                          height="100%"
+                          width="auto"
+                        />
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="subsection">
+                    <h2>Chemical management</h2>
+                    <div class="reading-text">
+                      <p>
+                        We train and accompany our suppliers to phase out
+                        hazardous chemicals following strict requirements beyond
+                        standard regulation. As such, suppliers must adhere to
+                        our Product Restricted Substances List (PRSL) to
+                        eliminate the use of hazardous chemicals. In addition,
+                        the MRSL (Manufacturing Restricted Substances List)
+                        broadens the horizon of chemical compliance, including
+                        all hazardous substances purchased by the supplier that
+                        might not be present in the finished product, but are
+                        potentially used and discharged into the environment
+                        during manufacturing processes. Through Kering, Bottega
+                        Veneta is also part of the Zero Discharge of Hazardous
+                        Chemicals (ZDHC) through Kering. We train and accompany
+                        our suppliers in their chemical management process using
+                        ZDHC tools.
+                      </p>
+                    </div>
+                  </article>
                 </div>
               </div>
             </li>
 
-            <li class="relative border-b border-gray-200">
+            <li class="relative border-b border-black" x-data="{selected:null}">
               <button
                 type="button"
                 class="w-full py-[--padding] text-left"
                 @click="selected !== 2 ? selected = 2 : selected = null"
               >
-                <div class="flex items-center justify-between uppercase">
+                <div
+                  class="accordion--toggle flex items-center justify-between uppercase"
+                >
                   <span>2. Absolute impact reduction</span>
                   <div class="toggle" x-text="selected == 2 ? '-' : '+'"></div>
                 </div>
               </button>
 
               <div
-                class="relative overflow-hidden transition-all max-h-0 duration-300"
-                style=""
+                class="relative max-h-0 overflow-hidden transition-all duration-300"
                 x-ref="container2"
                 x-bind:style="selected == 2 ? 'max-height: ' + $refs.container2.scrollHeight + 'px' : ''"
               >
-                <div class="p-6">
-                  <p>
-                    For reCAPTCHA v3, create a separate key for testing
-                    environments. Scores may not be accurate as reCAPTCHA v3
-                    relies on seeing real traffic.
-                  </p>
-                  <p>
-                    For reCAPTCHA v2, use the following test keys. You will
-                    always get No CAPTCHA and all verification requests will
-                    pass.
-                  </p>
+                <div class="accordion--content">
+                  <article class="subsection">
+                    <div class="reading-text">
+                      <p>
+                        In alignment with Kering, we are committed to an
+                        ambitious impact reduction program, including the
+                        reduction of our greenhouse gas emissions by 40% in
+                        absolute terms by 2035. This involves clear goals,
+                        rigorous measures, and pioneering innovation at each
+                        stage of our supply chain and across our operations,
+                        production, stores, offices, and ateliers.
+                      </p>
+                    </div>
+                  </article>
+
+                  <article class="subsection">
+                    <h2>Materials</h2>
+                    <div class="reading-text">
+                      <p>
+                        Our commitment begins with the careful selection of raw
+                        materials, prioritizing the most sustainable and durable
+                        solutions as defined by Kering’s Standards & Guidance
+                        for Sustainable Production.
+                      </p>
+                    </div>
+                    <div class="inline-slider">
+                      <div class="inline-slider__container">
+                        <img
+                          src="./assets/images/2/1.jpeg?as=jpg&width=400"
+                          height="100%"
+                          width="auto"
+                        />
+                        <img
+                          src="./assets/images/2/2.jpeg?as=jpg&width=400"
+                          height="100%"
+                          width="auto"
+                        />
+                        <img
+                          src="./assets/images/2/3.jpeg?as=jpg&width=400"
+                          height="100%"
+                          width="auto"
+                        />
+                        <img
+                          src="./assets/images/2/4.jpeg?as=jpg&width=400"
+                          height="100%"
+                          width="auto"
+                        />
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="subsection">
+                    <h2>Bottega Veneta timeline</h2>
+                    <div class="timeline">
+                      <div class="timeline--section">
+                        <div class="timeline--title uppercase">Today</div>
+                        <div class="timeline--items">
+                          <article class="reading-text">
+                            <p>
+                              Sources 100% of our leather from regions and
+                              countries that uphold the best environmental,
+                              social, and animal welfare practices, with full
+                              supply chain traceability.
+                            </p>
+                          </article>
+                          <article class="reading-text">
+                            <p>
+                              Sources 100% of our leather from regions and
+                              countries that uphold the best environmental,
+                              social, and animal welfare practices, with full
+                              supply chain traceability.
+                            </p>
+                          </article>
+                        </div>
+                      </div>
+
+                      <div class="timeline--section">
+                        <div class="timeline--title uppercase">By 2025</div>
+                        <div class="timeline--items">
+                          <article class="reading-text">
+                            <p>
+                              Sources 100% of our leather from regions and
+                              countries that uphold the best environmental,
+                              social, and animal welfare practices, with full
+                              supply chain traceability.
+                            </p>
+                          </article>
+                          <article class="reading-text">
+                            <p>
+                              Sources 100% of our leather from regions and
+                              countries that uphold the best environmental,
+                              social, and animal welfare practices, with full
+                              supply chain traceability.
+                            </p>
+                          </article>
+                          <article class="reading-text">
+                            <p>
+                              Sources 100% of our leather from regions and
+                              countries that uphold the best environmental,
+                              social, and animal welfare practices, with full
+                              supply chain traceability.
+                            </p>
+                          </article>
+                          <article class="reading-text">
+                            <p>
+                              Sources 100% of our leather from regions and
+                              countries that uphold the best environmental,
+                              social, and animal welfare practices, with full
+                              supply chain traceability.
+                            </p>
+                          </article>
+                          <article class="reading-text">
+                            <p>
+                              Sources 100% of our leather from regions and
+                              countries that uphold the best environmental,
+                              social, and animal welfare practices, with full
+                              supply chain traceability.
+                            </p>
+                          </article>
+                          <article class="reading-text">
+                            <p>
+                              Sources 100% of our leather from regions and
+                              countries that uphold the best environmental,
+                              social, and animal welfare practices, with full
+                              supply chain traceability.
+                            </p>
+                          </article>
+                          <article class="reading-text">
+                            <p>
+                              Sources 100% of our leather from regions and
+                              countries that uphold the best environmental,
+                              social, and animal welfare practices, with full
+                              supply chain traceability.
+                            </p>
+                          </article>
+                          <article class="reading-text">
+                            <p>
+                              Sources 100% of our leather from regions and
+                              countries that uphold the best environmental,
+                              social, and animal welfare practices, with full
+                              supply chain traceability.
+                            </p>
+                          </article>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="subsection">
+                    <h2>Ateliers</h2>
+                    <div class="reading-text">
+                      <p>
+                        Located in an 18th-century villa, our main Atelier in
+                        Montebello Vicentino has been LEED (Leadership in Energy
+                        and Environmental Design) platinum-certified since 2014.
+                      </p>
+                      <p>
+                        During the renovation of the original villa, we
+                        meticulously preserved existing building structures,
+                        reusing over 75% of the original materials. We sourced
+                        additional materials locally with 100% wood used in the
+                        project certified by the Forest Stewardship Council.
+                        Eco-friendly measures focus on water conservation,
+                        reduced artificial lighting, and energy efficiency.
+                        Highlights include 1,200 square meters of solar panels
+                        on the villa roof, a rainwater-recycling system, and
+                        ground-source heating and air-conditioning to minimize
+                        emissions.
+                      </p>
+                      <p>
+                        Our specialist Shoe Atelier in Vigonza, inaugurated in
+                        2023, isalso LEED platinum-certified. The atelier
+                        includes energy-saving measures, such as solar panels,
+                        recycled materials in construction, initiatives to
+                        support local biodiversity, and the preservation of
+                        natural habitats.
+                      </p>
+                    </div>
+                    <div class="inline-slider">
+                      <div class="inline-slider__container">
+                        <img
+                          src="./assets/images/2/5.png?as=jpg&width=400"
+                          height="100%"
+                          width="auto"
+                        />
+                        <img
+                          src="./assets/images/2/6.png?as=jpg&width=400"
+                          height="100%"
+                          width="auto"
+                        />
+                        <img
+                          src="./assets/images/2/7.png?as=jpg&width=400"
+                          height="100%"
+                          width="auto"
+                        />
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="subsection">
+                    <h2>Offices</h2>
+                    <div class="reading-text">
+                      <p>
+                        Bottega Veneta’s Milan Headquarters comprises two sites
+                        at the Palazzo San Fedele and Via Ercole Marelli, with a
+                        combined 440 square meters of solar panels. Introduced
+                        in 2014, the 2,400 square meter eco-food garden at Via
+                        Ercole Marelli supplies the company canteen with fresh
+                        vegetables and herbs, ensuring hyperlocal ingredients
+                        are featured on the daily menu, while providing Bottega
+                        Veneta employees with a tranquil outdoor space.
+                        Constructed with entirely recyclable or reusable
+                        materials, this urban food garden incorporates a
+                        minimally invasive lighting system and a water reuse
+                        system drawing from a rainwater underground tank. Both
+                        sites use 100% renewable electricity.
+                      </p>
+                    </div>
+                  </article>
+
+                  <article class="subsection">
+                    <h2>Green fashion shows</h2>
+                    <div class="reading-text">
+                      <p>
+                        Bottega Veneta upholds the "Leave no trace" ethos in its
+                        fashion shows, with a steadfast commitment to
+                        environmental responsibility. Since 2020, we have
+                        aligned with the Green Fashion Shows guidelines
+                        established by Kering, including the reuse, sale, or
+                        recycling of materials post-show, as well as the
+                        utilization of compostable packaging for locally
+                        sourced, fair-trade catering.
+                      </p>
+                    </div>
+                    <div class="inline-slider">
+                      <div class="inline-slider__container">
+                        <img
+                          src="./assets/images/2/8.jpeg?as=jpg&width=400"
+                          height="100%"
+                          width="auto"
+                        />
+                        <img
+                          src="./assets/images/2/9.jpeg?as=jpg&width=400"
+                          height="100%"
+                          width="auto"
+                        />
+                        <img
+                          src="./assets/images/2/10.jpeg?as=jpg&width=400"
+                          height="100%"
+                          width="auto"
+                        />
+                        <img
+                          src="./assets/images/2/11.jpeg?as=jpg&width=400"
+                          height="100%"
+                          width="auto"
+                        />
+                      </div>
+                    </div>
+                  </article>
                 </div>
               </div>
             </li>
 
-            <li class="relative border-b border-gray-200">
+            <li class="relative border-b border-black" x-data="{selected:null}">
               <button
                 type="button"
                 class="w-full py-[--padding] text-left"
                 @click="selected !== 3 ? selected = 3 : selected = null"
               >
-                <div class="flex items-center justify-between uppercase">
+                <div
+                  class="accordion--toggle flex items-center justify-between uppercase"
+                >
                   <span>3. Preserving our heritage of innovative craft</span>
                   <div class="toggle" x-text="selected == 3 ? '-' : '+'"></div>
                 </div>
               </button>
 
               <div
-                class="relative overflow-hidden transition-all max-h-0 duration-300"
-                style=""
+                class="relative max-h-0 overflow-hidden transition-all duration-300"
                 x-ref="container3"
                 x-bind:style="selected == 3 ? 'max-height: ' + $refs.container3.scrollHeight + 'px' : ''"
               >
-                <div class="p-6">
-                  <p>
-                    To do this, load the v3 site key as documented, and then
-                    explicitly render v2 using grecaptcha.render.
-                  </p>
-                  <p>
-                    You are allowed to hide the badge as long as you include the
-                    reCAPTCHA branding visibly in the user flow. Please include
-                    the following text:
-                  </p>
-                  <p>
-                    Yes, please use "www.recaptcha.net" in your code in
-                    circumstances when "www.google.com" is not accessible.
-                  </p>
-                  <ul>
-                    <li>
-                      First, replace &lt;script
-                      src="https://www.google.com/recaptcha/api.js" async
-                      defer&gt;&lt;/script&gt; with &lt;script
-                      src="https://www.recaptcha.net/recaptcha/api.js" async
-                      defer&gt;&lt;/script&gt;
-                    </li>
-                    <li>
-                      After that, apply the same to everywhere else that uses
-                      "www.google.com/recaptcha/" on your site.
-                    </li>
-                  </ul>
-                  <p>
-                    After that, apply the same to everywhere else that uses
-                    "www.google.com/recaptcha/" on your site.
-                  </p>
+                <div class="accordion--content">
+                  <article class="subsection">
+                    <h2>Certificate of Craft</h2>
+                    <div class="reading-text">
+                      <p>
+                        In 2022, Bottega Veneta launched the Certificate of
+                        Craft, a lifetime warranty on iconic Bottega Veneta
+                        bags. This unique guarantee, unrivalled in the industry,
+                        allows our customers unlimited refresh and repair
+                        services, free of charge. An expression of our
+                        commitment to enduring craftsmanship and our guiding
+                        ethos of value over volume, the Certificate of Craft
+                        intends to preserve Bottega Veneta bags from one
+                        generation to the next and to advocate for the long-term
+                        use and enjoyment of exceptional artisanal products.
+                      </p>
+                    </div>
+                  </article>
+
+                  <article class="subsection">
+                    <h2>Fostering Artisanal Talent</h2>
+                    <div class="reading-text">
+                      <p>
+                        Bottega Veneta employs 1800 artisans in the Veneto
+                        region. We consider it both a social and cultural
+                        responsibility to nurture this local craftsmanship,
+                        thereby promoting the dynamism of the Veneto region,
+                        protecting Made in Italy heritage, and transmitting our
+                        unique savoir-faire to new talents.
+                      </p>
+                      <p>
+                        We founded our first leatherwork school in 2006 at the
+                        Scuola d’Arte e Mestiere di Vicenza. Over the years, we
+                        have also partnered on training courses and programs in
+                        leather goods and textiles with IUAV University in
+                        Venice, Centro di Formazione Professionale Giovanni
+                        Fontana in Chiampo, and Istituto Professionale Montagna
+                        near Vicenza.
+                      </p>
+                      <p>
+                        In 2023, we deepened our commitment to artisanal
+                        training with the launch of Accademia Labor et Ingenium.
+                        The academy builds on Bottega Veneta’s
+                        integral connection to the traditional “bottega” or
+                        “workshop”, where a collective of artisans honed their
+                        skills and transmitted knowledge from one generation to
+                        the next. The name derives from the brand’s founding
+                        values, as seen in its original company crest: Labor et
+                        Ingenium, “Craft and Creativity”.
+                      </p>
+                      <p>
+                        Based between the Bottega Veneta atelier in Montebello
+                        Vicentino and a dedicated new space at Povolaro
+                        Dueville, Accademia Labor et Ingenium serves as a
+                        permanent workshop, where Bottega Veneta employees,
+                        new hires, and external students can learn from master
+                        artisans through training activities, events, and
+                        courses. A central pillar of the academy is a
+                        comprehensive training program for 50 students a year,
+                        with guaranteed employment at Bottega Veneta on
+                        completion of the course. This program is led by a
+                        community of master artisans and promotes a combined
+                        curriculum of manual work and creative experience.
+                      </p>
+                    </div>
+                    <div class="inline-slider">
+                      <div class="inline-slider__container">
+                        <img
+                          src="./assets/images/3/1.jpeg?as=jpg&width=400"
+                          height="100%"
+                          width="auto"
+                        />
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="subsection">
+                    <h2>UNHCR Partnership</h2>
+                    <div class="reading-text">
+                      <p>
+                        Since 2020, Bottega Veneta works with the United Nations
+                        High Commissioner for Refugees (UNHCR) to provide
+                        training, mentoring, and employment opportunities to
+                        refugees. Working together with UNHCR and local NGOs, we
+                        have welcomed refugees from five different origin
+                        countries into training programs at the Accademia Labor
+                        et Ingenium, and employment at our Veneto ateliers. We
+                        are proud to have been twice recognized with the Working
+                        for Refugee Integration Award.
+                      </p>
+                    </div>
+                  </article>
+
+                  <article class="subsection">
+                    <h2>Bottega for Bottegas</h2>
+                    <div class="reading-text">
+                      <p>
+                        In December 2021, Bottega Veneta launched "Bottega for
+                        Bottegas", a solidarity project to share our love of
+                        craft and to support smaller-scale artisans who had been
+                        particularly impacted by the Covid-19 pandemic. We have
+                        continued this project each festive season since, giving
+                        over our advertising spaces, website, newsletters, and
+                        store windows to a selection of other “Bottegas” who
+                        share our commitment to excellence and exemplify our
+                        core values of creativity, craft, and community.
+                      </p>
+                    </div>
+                    <div class="inline-slider">
+                      <div class="inline-slider__container">
+                        <img
+                          src="./assets/images/3/2.jpeg?as=jpg&width=400"
+                          height="100%"
+                          width="auto"
+                        />
+                        <img
+                          src="./assets/images/3/3.jpeg?as=jpg&width=400"
+                          height="100%"
+                          width="auto"
+                        />
+                        <img
+                          src="./assets/images/3/4.jpeg?as=jpg&width=400"
+                          height="100%"
+                          width="auto"
+                        />
+                        <img
+                          src="./assets/images/3/5.jpeg?as=jpg&width=400"
+                          height="100%"
+                          width="auto"
+                        />
+                      </div>
+                    </div>
+                  </article>
                 </div>
               </div>
             </li>
           </ul>
         </section>
+        <section class="section">
+          <video-js
+            data-account="6159029852001"
+            data-player="default"
+            data-embed="default"
+            data-video-id="6325047252112"
+            data-playlist-id=""
+            data-application-id=""
+            class="vjs-fluid"
+            loop="true"
+            autoplay="autoplay"
+            controls=""
+            muted=""
+          ></video-js>
+        </section>
       </div>
     </div>
+    <script src="https://players.brightcove.net/6159029852001/default_default/index.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script
       defer
