@@ -173,7 +173,7 @@ header {
         left: 0;
         white-space: nowrap;
         padding-right: var(--padding);
-        font-weight: 700;
+        // font-weight: 700;
         @include below($sm) {
           left: var(--padding-container);
         }
