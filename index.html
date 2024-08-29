@@ -113,7 +113,7 @@
         </section>
         <section class="section section--media">
           <div class="section--media__media">
-            <picture class="hidden sm:block 2xl:hidden">
+            <picture>
               <img
                 srcset="
                   ./assets/images/texture.jpg?as=jpg&width=400   400w,
@@ -137,8 +137,8 @@
               structured around three key pillars:
             </p>
           </div>
-          <ul class="border-t border-black">
-            <li class="relative border-b border-black" x-data="{selected:null}">
+          <ul class="border-t border-black" x-data="{selected:null}">
+            <li class="relative border-b border-black">
               <button
                 type="button"
                 class="w-full py-[--padding] text-left"
