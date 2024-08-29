@@ -82,19 +82,22 @@
 
     <div class="bv-page">
       <div class="page--sections">
-        <section class="section section--media">
-          <div class="section--media__media">
+        <section class="section section--media h-[calc(100dvh-10rem)]">
+          <div class="section--media__media h-full">
             <img
               src="https://bottega-veneta.dam.kering.com/m/35934a1684f1f8ee/Large2-1_Landing_page.jpg"
               alt=""
+              class="h-full w-full object-cover"
             />
           </div>
         </section>
         <section
-          class="section grid gap-[--padding] p-[--padding] md:grid-cols-2"
+          class="section grid gap-[--padding] px-[--padding-container] py-[calc(var(--padding-container)/2)] md:grid-cols-2"
         >
           <div>
-            <h1 class="uppercase title title">Bottega Veneta and sustainability</h1>
+            <h1 class="title title uppercase">
+              Bottega Veneta and sustainability
+            </h1>
           </div>
           <div class="reading-text">
             <p>
@@ -130,7 +133,7 @@
         <section
           class="section section--accordion py-10 md:px-[--padding-container] md:py-20"
         >
-          <div class="mb-[--padding] px-[--padding] uppercase title md:px-0">
+          <div class="title mb-[--padding] px-[--padding] uppercase md:px-0">
             <p>
               Today, we build on our heritage in exceptional, enduring craft
               with an ambitious social and environmental sustainability program,
@@ -141,11 +144,11 @@
             <li class="relative border-b border-black">
               <button
                 type="button"
-                class="w-full py-[--padding] text-left"
-                @click="selected !== 1 ? selected = 1 : selected = null"
+                class="accordion--button w-full py-[--padding] text-left"
+                @click="selected !== 1 ? selected = 1 : selected = null, setTimeout(() => $event.target.scrollIntoView({behavior: 'smooth', block: 'center'}), 300)"
               >
                 <div
-                  class="accordion--toggle flex items-start justify-between uppercase title"
+                  class="accordion--toggle title flex items-start justify-between uppercase"
                 >
                   <span>1. Embracing a culture of sustainability</span>
                   <div class="toggle" x-text="selected == 1 ? '-' : '+'"></div>
@@ -279,11 +282,11 @@
             <li class="relative border-b border-black">
               <button
                 type="button"
-                class="w-full py-[--padding] text-left"
-                @click="selected !== 2 ? selected = 2 : selected = null"
+                class="accordion--button w-full py-[--padding] text-left"
+                @click="selected !== 2 ? selected = 2 : selected = null, setTimeout(() => $event.target.scrollIntoView({behavior: 'smooth', block: 'center'}), 300)"
               >
                 <div
-                  class="accordion--toggle flex items-center justify-between uppercase title"
+                  class="accordion--toggle title flex items-center justify-between uppercase"
                 >
                   <span>2. Absolute impact reduction</span>
                   <div class="toggle" x-text="selected == 2 ? '-' : '+'"></div>
@@ -617,11 +620,11 @@
             <li class="relative border-b border-black">
               <button
                 type="button"
-                class="w-full py-[--padding] text-left"
-                @click="selected !== 3 ? selected = 3 : selected = null"
+                class="accordion--button w-full py-[--padding] text-left"
+                @click="selected !== 3 ? selected = 3 : selected = null, setTimeout(() => $event.target.scrollIntoView({behavior: 'smooth', block: 'center'}), 300)"
               >
                 <div
-                  class="accordion--toggle flex items-center justify-between uppercase title"
+                  class="accordion--toggle title flex items-center justify-between uppercase"
                 >
                   <span>3. Preserving our heritage of innovative craft</span>
                   <div class="toggle" x-text="selected == 3 ? '-' : '+'"></div>
@@ -782,7 +785,6 @@
             class="vjs-fluid"
             loop="true"
             autoplay="autoplay"
-            controls=""
             muted=""
           ></video-js>
         </section>

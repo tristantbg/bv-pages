@@ -37,7 +37,7 @@ header {
 }
 .bv-page {
   --padding: 24px;
-  --padding-container: 10vw;
+  --padding-container: 8vw;
   --font-size: 20px;
   --viewport-height: 100dvh;
   --green: #486830;
@@ -63,7 +63,8 @@ header {
     font-weight: 400;
   }
   h2 {
-    font-size: calc(var(--font-size) * 1.3);
+    display: block;
+    font-size: calc(var(--font-size) * 1.5);
     line-height: 1;
     font-weight: 400;
     @include below($sm) {
@@ -97,6 +98,10 @@ header {
     }
   }
   .section--accordion {
+    .accordion--button {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
     .accordion--content,
     .subsection {
       display: grid;
@@ -105,6 +110,11 @@ header {
     .accordion--content {
       padding-top: 1rem;
       padding-bottom: 3rem;
+    }
+    .subsection:not(:first-child) {
+      h2 {
+        margin-top: 1em;
+      }
     }
     @include below($sm) {
       .accordion--toggle,
