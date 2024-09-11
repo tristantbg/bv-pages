@@ -104,16 +104,23 @@ header {
     }
     .accordion--content,
     .subsection {
-      display: grid;
-      gap: var(--padding);
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 1rem;
     }
     .accordion--content {
-      padding-top: 1rem;
+      padding-top: 2rem;
       padding-bottom: 3rem;
     }
-    .subsection:not(:first-child) {
-      h2 {
-        margin-top: 1em;
+    .subsection {
+      &:not(:first-child) {
+        h2 {
+          margin-top: 1em;
+        }
+      }
+      p {
+        max-width: 90ch;
       }
     }
     @include below($sm) {
@@ -135,7 +142,7 @@ header {
     .inline-slider__container {
       display: flex;
       flex-wrap: wrap;
-      gap: var(--padding);
+      gap: 1rem;
       @include below($sm) {
         flex-wrap: nowrap;
         gap: 0;

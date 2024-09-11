@@ -140,17 +140,17 @@
               structured around three key pillars:
             </p>
           </div>
-          <ul class="border-t border-black" x-data="{selected:null}">
-            <li class="relative border-b border-black">
+          <ul class="border-t border-black">
+            <li class="relative border-b border-black" x-data="{selected:null}">
               <button
                 type="button"
                 class="accordion--button w-full py-[--padding] text-left"
                 @click="selected !== 1 ? selected = 1 : selected = null, setTimeout(() => $event.target.scrollIntoView({behavior: 'smooth', block: 'center'}), 300)"
               >
                 <div
-                  class="accordion--toggle title flex items-start justify-between uppercase"
+                  class="accordion--toggle title flex cursor-pointer items-start justify-between uppercase"
                 >
-                  <span>1. Embracing a culture of sustainability</span>
+                  <span>1. Fostering a culture of sustainability</span>
                   <div class="toggle" x-text="selected == 1 ? '-' : '+'"></div>
                 </div>
               </button>
@@ -162,35 +162,22 @@
               >
                 <div class="accordion--content">
                   <article class="subsection">
-                    <h2>Responsible Supply Chain</h2>
                     <div class="reading-text">
                       <p>
-                        More than 95% of Bottega Veneta’s direct suppliers are
-                        based in Italy. Our supplier list is publicly available
-                        here and it is updated every six months.
-                      </p>
-                      <p>
-                        All our suppliers and subcontractors are required to
-                        comply with Kering’s Sustainability Principles, Code of
-                        Ethics, Product Restricted Substances List (PRSL), and
-                        Statement on Modern Slavery. All our operations are
-                        monitored pursuant to the SA8000 certificationmanagement
-                        system, the leading certification on workplace standards
-                        and practices.
-                      </p>
-                      <p>
-                        For the duration of all supplier agreements, we follow
-                        rigorous monitoring procedures with annual audits
-                        conducted by specialized teams from Kering and
-                        third-party entities. In the event of any compliance
-                        discrepancies, comprehensive corrective action plans are
-                        formulated, followed by subsequent audits to ensure full
-                        compliance. Every year, we offer training seminars
-                        tailored to each product category and designed to impart
-                        best sustainability practices and insights, including
-                        chemical management process.
+                        We engage both internal and external stakeholders to
+                        foster a culture of sustainability within our company
+                        and throughout the luxury sector. Internally, we raise
+                        awareness and knowledge through regular sustainability
+                        training programs and empower our employees to
+                        contribute to the brand’s sustainability agenda through
+                        tools, goal setting, and incentives. Externally, we
+                        ensure best sustainability practices across our supply
+                        chain.
                       </p>
                     </div>
+                  </article>
+
+                  <article class="subsection">
                     <div class="inline-slider">
                       <div class="inline-slider__container">
                         <img
@@ -218,15 +205,15 @@
                       <p>
                         In 2021, Bottega Veneta launched the Green Atelier app,
                         an internal tool that aims at evaluating the
-                        sustainability of our products based on five
-                        sustainability indicators related to materials
-                        (traceability, conformity to Kering standards and
-                        environmental impact) and suppliers (advance chemical
-                        management and working conditions). Through the app, we
-                        ensure that all employees have access to detailed
-                        sustainability data, speak a common language, and are
-                        informed and empowered to make decisions in line with
-                        the highest sustainability standards.
+                        sustainability of our products based on five indicators
+                        related to materials (traceability, conformity to Kering
+                        standards and environmental impact) and suppliers
+                        (advance chemical management and working conditions).
+                        Through the app, we ensure that all employees have
+                        access to detailed sustainability data, speak a common
+                        language, and are informed and empowered to make
+                        decisions in line with the highest sustainability
+                        standards.
                       </p>
                     </div>
                   </article>
@@ -242,36 +229,46 @@
                         engagement.
                       </p>
                     </div>
-                    <div class="inline-slider">
-                      <div class="inline-slider__container">
-                        <img
-                          src="./assets/images/1/4.jpeg?as=jpg&width=400"
-                          height="100%"
-                          width="auto"
-                        />
-                      </div>
-                    </div>
                   </article>
 
                   <article class="subsection">
-                    <h2>Chemical management</h2>
+                    <h2>Responsible Supply Chain</h2>
                     <div class="reading-text">
                       <p>
-                        We train and accompany our suppliers to phase out
+                        More than 99% of Bottega Veneta’s direct suppliers are
+                        based in Italy. This commitment to local craftmanship
+                        also enables us to keep a moderate manufacturing
+                        footprint.
+                      </p>
+                      <p>
+                        All our suppliers are required to comply with Kering’s
+                        Sustainability Principles, Code of Ethics, Product
+                        Restricted Substances List (PRSL), and Statement on
+                        Modern Slavery. All our operations are monitored
+                        pursuant to the SA8000 certification management system,
+                        the leading certification on workplace standards and
+                        practices.
+                      </p>
+                      <p>
+                        For the duration of all supplier agreements, we follow
+                        rigorous monitoring procedures with annual audits
+                        conducted by specialized teams from Kering and
+                        third-party entities. In the event of any compliance
+                        discrepancies, comprehensive corrective action plans are
+                        formulated, followed by subsequent audits to ensure full
+                        compliance. Every year, we offer training seminars
+                        tailored to each product category and designed to impart
+                        best sustainability practices and insights.
+                      </p>
+                      <p>
+                        We also train and accompany our suppliers to phase out
                         hazardous chemicals following strict requirements beyond
-                        standard regulation. As such, suppliers must adhere to
-                        our Product Restricted Substances List (PRSL) to
-                        eliminate the use of hazardous chemicals. In addition,
-                        the MRSL (Manufacturing Restricted Substances List)
-                        broadens the horizon of chemical compliance, including
-                        all hazardous substances purchased by the supplier that
-                        might not be present in the finished product, but are
-                        potentially used and discharged into the environment
-                        during manufacturing processes. Through Kering, Bottega
-                        Veneta is also part of the Zero Discharge of Hazardous
-                        Chemicals (ZDHC) through Kering. We train and accompany
-                        our suppliers in their chemical management process using
-                        ZDHC tools.
+                        standard regulation. Suppliers must adhere to our
+                        Product Restricted Substances List (PRSL) to eliminate
+                        the use of hazardous chemicals, as well as the MRSL
+                        (Manufacturing Restricted Substances List). Through
+                        Kering, Bottega Veneta is also part of the Zero
+                        Discharge of Hazardous Chemicals (ZDHC) initiative.
                       </p>
                     </div>
                   </article>
@@ -279,14 +276,14 @@
               </div>
             </li>
 
-            <li class="relative border-b border-black">
+            <li class="relative border-b border-black" x-data="{selected:null}">
               <button
                 type="button"
                 class="accordion--button w-full py-[--padding] text-left"
                 @click="selected !== 2 ? selected = 2 : selected = null, setTimeout(() => $event.target.scrollIntoView({behavior: 'smooth', block: 'center'}), 300)"
               >
                 <div
-                  class="accordion--toggle title flex items-center justify-between uppercase"
+                  class="accordion--toggle title flex cursor-pointer items-center justify-between uppercase"
                 >
                   <span>2. Absolute impact reduction</span>
                   <div class="toggle" x-text="selected == 2 ? '-' : '+'"></div>
@@ -303,12 +300,14 @@
                     <div class="reading-text">
                       <p>
                         In alignment with Kering, we are committed to an
-                        ambitious impact reduction program, including the
-                        reduction of our greenhouse gas emissions by 40% in
-                        absolute terms by 2035. This involves clear goals,
-                        rigorous measures, and pioneering innovation at each
-                        stage of our supply chain and across our operations,
-                        production, stores, offices, and ateliers.
+                        ambitious impact reduction program. This includes the
+                        reduction of our greenhouse gas emissions by 40% in
+                        absolute terms by 2035, meaning that regardless of how
+                        much we grow our business, we will reduce our impact.
+                        This commitment involves clear goals, rigorous measures,
+                        and pioneering innovation at each stage of our supply
+                        chain and across our operations, production, stores,
+                        offices, and ateliers.
                       </p>
                     </div>
                   </article>
@@ -365,42 +364,32 @@
                           </article>
                           <article class="reading-text">
                             <p>
-                              Sources 100% of our leather from regions and
-                              countries that uphold the best environmental,
-                              social, and animal welfare practices, with full
-                              supply chain traceability.
+                              Prioritizes metal-free leather tanning to decrease
+                              the use of water and energy use in production.
                             </p>
                           </article>
                           <article class="reading-text">
                             <p>
-                              Sources 100% of our leather from regions and
-                              countries that uphold the best environmental,
-                              social, and animal welfare practices, with full
-                              supply chain traceability.
+                              Uses surplus material to create special
+                              hand-crafted pieces in the Reserve Leather series.
                             </p>
                           </article>
                           <article class="reading-text">
                             <p>
-                              Sources 100% of our leather from regions and
-                              countries that uphold the best environmental,
-                              social, and animal welfare practices, with full
-                              supply chain traceability.
+                              Uses 100% organic or recycled cotton in our
+                              flannel bags and client advisors’ uniforms.
                             </p>
                           </article>
                           <article class="reading-text">
                             <p>
-                              Sources 100% of our leather from regions and
-                              countries that uphold the best environmental,
-                              social, and animal welfare practices, with full
-                              supply chain traceability.
+                              Uses 75% organic or recycled cotton in our
+                              Ready-to-Wear.
                             </p>
                           </article>
                           <article class="reading-text">
                             <p>
-                              Sources 100% of our leather from regions and
-                              countries that uphold the best environmental,
-                              social, and animal welfare practices, with full
-                              supply chain traceability.
+                              Uses 100% FSC certified or recycled paper and
+                              cardboard.
                             </p>
                           </article>
                         </div>
@@ -411,90 +400,36 @@
                         <div class="timeline--items">
                           <article class="reading-text">
                             <p>
-                              Sources 100% of our leather from regions and
-                              countries that uphold the best environmental,
-                              social, and animal welfare practices, with full
-                              supply chain traceability.
+                              100% of our materials certified to the
+                              best-in-class, 3rd party, environmental, social
+                              and animal certifications, as recognized in the
+                              Kering Standards & Guidance for Sustainable
+                              Production.
                             </p>
                           </article>
                           <article class="reading-text">
                             <p>
-                              Sources 100% of our leather from regions and
-                              countries that uphold the best environmental,
-                              social, and animal welfare practices, with full
-                              supply chain traceability.
+                              100% organic or recycled cotton in all products
+                              and packaging.
                             </p>
                           </article>
                           <article class="reading-text">
                             <p>
-                              Sources 100% of our leather from regions and
-                              countries that uphold the best environmental,
-                              social, and animal welfare practices, with full
-                              supply chain traceability.
+                              100% of cellulose being certified by both the
+                              Forestry Stewardship Council and the CanopyStyle
+                              initiative.
                             </p>
                           </article>
                           <article class="reading-text">
                             <p>
-                              Sources 100% of our leather from regions and
-                              countries that uphold the best environmental,
-                              social, and animal welfare practices, with full
-                              supply chain traceability.
+                              100% bio-based or recycled plastic and total
+                              phase-out of single-use plastic.
                             </p>
                           </article>
                           <article class="reading-text">
                             <p>
-                              Sources 100% of our leather from regions and
-                              countries that uphold the best environmental,
-                              social, and animal welfare practices, with full
-                              supply chain traceability.
-                            </p>
-                          </article>
-                          <article class="reading-text">
-                            <p>
-                              Sources 100% of our leather from regions and
-                              countries that uphold the best environmental,
-                              social, and animal welfare practices, with full
-                              supply chain traceability.
-                            </p>
-                          </article>
-                          <article class="reading-text">
-                            <p>
-                              Sources 100% of our leather from regions and
-                              countries that uphold the best environmental,
-                              social, and animal welfare practices, with full
-                              supply chain traceability.
-                            </p>
-                          </article>
-                          <article class="reading-text">
-                            <p>
-                              Sources 100% of our leather from regions and
-                              countries that uphold the best environmental,
-                              social, and animal welfare practices, with full
-                              supply chain traceability.
-                            </p>
-                          </article>
-                          <article class="reading-text">
-                            <p>
-                              Sources 100% of our leather from regions and
-                              countries that uphold the best environmental,
-                              social, and animal welfare practices, with full
-                              supply chain traceability.
-                            </p>
-                          </article>
-                          <article class="reading-text">
-                            <p>
-                              Sources 100% of our leather from regions and
-                              countries that uphold the best environmental,
-                              social, and animal welfare practices, with full
-                              supply chain traceability.
-                            </p>
-                          </article>
-                          <article class="reading-text">
-                            <p>
-                              Sources 100% of our leather from regions and
-                              countries that uphold the best environmental,
-                              social, and animal welfare practices, with full
-                              supply chain traceability.
+                              Scaling up the use of cashmere and wool derived
+                              from regenerative agriculture.
                             </p>
                           </article>
                         </div>
@@ -554,28 +489,67 @@
                   </article>
 
                   <article class="subsection">
+                    <h2>Stores</h2>
+                    <div class="reading-text">
+                      <p>
+                        Since 2022, all Bottega Veneta new stores openings and
+                        refurbishments are at least LEED gold certified. We use
+                        100% renewable electricity for all European and American
+                        locations and buy renewable energy certificates in other
+                        locations where electricity from renewable sources is
+                        not available for structural reasons.
+                      </p>
+                    </div>
+                    <div class="inline-slider">
+                      <div class="inline-slider__container">
+                        <img
+                          src="./assets/images/2/5.png?as=jpg&width=400"
+                          height="100%"
+                          width="auto"
+                        />
+                        <img
+                          src="./assets/images/2/6.png?as=jpg&width=400"
+                          height="100%"
+                          width="auto"
+                        />
+                        <img
+                          src="./assets/images/2/7.png?as=jpg&width=400"
+                          height="100%"
+                          width="auto"
+                        />
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="subsection">
                     <h2>Offices</h2>
                     <div class="reading-text">
                       <p>
-                        Bottega Veneta’s Milan Headquarters comprises two sites
-                        at the Palazzo San Fedele and Via Ercole Marelli, with a
-                        combined 440 square meters of solar panels. Introduced
-                        in 2014, the 2,400 square meter eco-food garden at Via
-                        Ercole Marelli supplies the company canteen with fresh
-                        vegetables and herbs, ensuring hyperlocal ingredients
-                        are featured on the daily menu, while providing Bottega
-                        Veneta employees with a tranquil outdoor space.
-                        Constructed with entirely recyclable or reusable
-                        materials, this urban food garden incorporates a
-                        minimally invasive lighting system and a water reuse
-                        system drawing from a rainwater underground tank. Both
-                        sites use 100% renewable electricity.
+                        Bottega Veneta’s Milan headquarters comprises two sites
+                        at the Palazzo San Fedele and Via Privata Ercole
+                        Marelli, with a total of 440 square meters of solar
+                        panels. Both sites use 100% renewable electricity and
+                        feature several energy and water saving measures include
+                        high-performance presence sensors, lighting regulators,
+                        and rainwater collection systems.
+                      </p>
+                      <p>
+                        Introduced in 2014, the 2,400 square meter eco-food
+                        garden at Via Privata Ercole Marelli supplies the
+                        company canteen with fresh vegetables and herbs,
+                        ensuring hyperlocal ingredients are featured on the
+                        daily menu, while providing Bottega Veneta employees
+                        with a tranquil outdoor space. Constructed with entirely
+                        recyclable or reusable materials, this urban food garden
+                        incorporates a minimally invasive lighting system and a
+                        water reuse system drawing from a rainwater underground
+                        tank.
                       </p>
                     </div>
                   </article>
 
                   <article class="subsection">
-                    <h2>Green fashion shows</h2>
+                    <h2>Fashion shows</h2>
                     <div class="reading-text">
                       <p>
                         Bottega Veneta upholds the "Leave no trace" ethos in its
@@ -617,14 +591,14 @@
               </div>
             </li>
 
-            <li class="relative border-b border-black">
+            <li class="relative border-b border-black" x-data="{selected:null}">
               <button
                 type="button"
                 class="accordion--button w-full py-[--padding] text-left"
                 @click="selected !== 3 ? selected = 3 : selected = null, setTimeout(() => $event.target.scrollIntoView({behavior: 'smooth', block: 'center'}), 300)"
               >
                 <div
-                  class="accordion--toggle title flex items-center justify-between uppercase"
+                  class="accordion--toggle title flex cursor-pointer items-center justify-between uppercase"
                 >
                   <span>3. Preserving our heritage of innovative craft</span>
                   <div class="toggle" x-text="selected == 3 ? '-' : '+'"></div>
@@ -638,11 +612,30 @@
               >
                 <div class="accordion--content">
                   <article class="subsection">
+                    <div class="reading-text">
+                      <p>
+                        Born out of the passion of a collective of artisans,
+                        Bottega Veneta is defined by its extraordinary,
+                        innovative craft. This craft builds on centuries of
+                        remarkable leatherwork in the Veneto region and relies
+                        on the talent and dedication of highly skilled artisans.
+                        We consider it both a social and cultural responsibility
+                        to nurture this heritage and community. Today, we employ
+                        1800 artisans in the Veneto and engage in multiple
+                        training, upskilling, and reskilling initiatives to
+                        foster this regional dynamism, promote Made in Italy
+                        excellence, and transmit our unique savoir-faire from
+                        one generation to the next.
+                      </p>
+                    </div>
+                  </article>
+
+                  <article class="subsection">
                     <h2>Certificate of Craft</h2>
                     <div class="reading-text">
                       <p>
                         In 2022, Bottega Veneta launched the Certificate of
-                        Craft, a lifetime warranty on iconic Bottega Veneta
+                        Craft, a lifetime guarantee on iconic Bottega Veneta
                         bags. This unique guarantee, unrivalled in the industry,
                         allows our customers unlimited refresh and repair
                         services, free of charge. An expression of our
@@ -668,12 +661,12 @@
                       </p>
                       <p>
                         We founded our first leatherwork school in 2006 at the
-                        Scuola d’Arte e Mestiere di Vicenza. Over the years, we
-                        have also partnered on training courses and programs in
-                        leather goods and textiles with IUAV University in
-                        Venice, Centro di Formazione Professionale Giovanni
-                        Fontana in Chiampo, and Istituto Professionale Montagna
-                        near Vicenza.
+                        Scuola d’Arte di Vicenza. Over the years, we have also
+                        partnered on training courses and programs in leather
+                        goods and textiles with IUAV University in Venice,
+                        Centro di Formazione Professionale Giovanni Fontana in
+                        Chiampo, and Istituto Professionale Montagna near
+                        Vicenza.
                       </p>
                       <p>
                         In 2023, we deepened our commitment to artisanal
@@ -688,17 +681,18 @@
                       </p>
                       <p>
                         Based between the Bottega Veneta atelier in Montebello
-                        Vicentino and a dedicated new space at Povolaro
-                        Dueville, Accademia Labor et Ingenium serves as a
-                        permanent workshop, where Bottega Veneta employees,
-                        new hires, and external students can learn from master
-                        artisans through training activities, events, and
-                        courses. A central pillar of the academy is a
-                        comprehensive training program for 50 students a year,
-                        with guaranteed employment at Bottega Veneta on
-                        completion of the course. This program is led by a
-                        community of master artisans and promotes a combined
-                        curriculum of manual work and creative experience.
+                        Vicentino and a dedicated new space at the brand’s
+                        manufacturing site at Povolaro Dueville, Accademia Labor
+                        et Ingenium serves as a permanent workshop, where
+                        Bottega Veneta employees, new hires, and external
+                        students can learn from master artisans through training
+                        activities, events, and courses. A central pillar of the
+                        academy is a comprehensive training program for 50
+                        students a year, with guaranteed employment at Bottega
+                        Veneta on completion of the course. This program is led
+                        by a community of master artisans and promotes a
+                        combined curriculum of manual work and creative
+                        experience.
                       </p>
                     </div>
                     <div class="inline-slider">
@@ -722,9 +716,10 @@
                         refugees. Working together with UNHCR and local NGOs, we
                         have welcomed refugees from five different origin
                         countries into training programs at the Accademia Labor
-                        et Ingenium, and employment at our Veneto ateliers. We
-                        are proud to have been twice recognized with the Working
-                        for Refugee Integration Award.
+                        et Ingenium, and employment at our Veneto ateliers and
+                        manufacturing sites. We are proud to have been twice
+                        recognized with the Working for Refugee Integration
+                        Award in 2022 and 2023.
                       </p>
                     </div>
                   </article>
