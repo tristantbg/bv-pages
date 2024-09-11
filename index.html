@@ -84,11 +84,24 @@
       <div class="page--sections">
         <section class="section section--media h-[calc(100dvh-10rem)]">
           <div class="section--media__media h-full">
-            <img
+            <picture>
+              <img
+                srcset="
+                  ./assets/images/hero.jpg?as=jpg&width=400   400w,
+                  ./assets/images/hero.jpg?as=jpg&width=800   800w,
+                  ./assets/images/hero.jpg?as=jpg&width=1200 1200w,
+                  ./assets/images/hero.jpg?as=jpg&width=1920 1920w,
+                  ./assets/images/hero.jpg?as=jpg&width=3000 3000w
+                "
+                width="100%"
+                class="h-full w-full object-cover"
+              />
+            </picture>
+            <!-- <img
               src="https://bottega-veneta.dam.kering.com/m/35934a1684f1f8ee/Large2-1_Landing_page.jpg"
               alt=""
               class="h-full w-full object-cover"
-            />
+            /> -->
           </div>
         </section>
         <section
