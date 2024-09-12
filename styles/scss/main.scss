@@ -77,6 +77,12 @@ header {
       font-size: calc(var(--font-size) * 0.8);
     }
   }
+  h1.title {
+    @include below($sm) {
+      font-size: calc(var(--font-size) * 1.5);
+      line-height: 1.2;
+    }
+  }
   img,
   video {
     display: block;
