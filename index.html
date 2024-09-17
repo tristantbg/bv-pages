@@ -40,7 +40,11 @@
     <link rel="stylesheet" href="./styles/scss/main.scss" />
   </head>
 
-  <body page-type="home" class="opacity-0" x-init="$el.classList.remove('opacity-0')">
+  <body
+    page-type="home"
+    class="opacity-0"
+    x-init="$el.classList.remove('opacity-0')"
+  >
     <header>
       <picture class="hidden 2xl:block">
         <img
@@ -80,7 +84,7 @@
       </picture>
     </header>
 
-    <div class="bv-page opacity-0" x-init="$el.classList.remove('opacity-0')">
+    <div class="bv-page" x-init="$el.style.opacity = ''" style="opacity: 0">
       <div class="page--sections">
         <section class="section section--media h-[calc(100dvh-10rem)]">
           <div class="section--media__media h-full">
@@ -101,7 +105,7 @@
           </div>
           <div class="reading-text">
             <p>
-              Bottega Veneta products are made to last for generations with an
+              Bottega Veneta products are made to last for generations, with an
               uncompromising approach to durability and quality. As such,
               sustainability is intrinsic to our history and our values.
             </p>
@@ -122,18 +126,16 @@
             />
           </div>
         </section>
-        <section
-          class="section section--accordion pt-10 md:px-[--padding-container] md:py-20"
-        >
-          <div class="title mb-[--padding] px-[--padding] uppercase md:px-0">
+        <section class="section section--accordion py-10 md:py-20">
+          <div class="title mb-[--padding] px-[--padding-container] uppercase">
             <p>
               Today, we build on our heritage in exceptional, enduring craft
               with an ambitious social and environmental sustainability program,
               structured around three key pillars:
             </p>
           </div>
-          <ul class="border-t border-black">
-            <li class="relative border-b border-black" x-data="{selected:null}">
+          <ul>
+            <li class="relative" x-data="{selected:null}">
               <button
                 type="button"
                 class="accordion--button w-full py-[--padding] text-left"
@@ -268,7 +270,7 @@
               </div>
             </li>
 
-            <li class="relative border-b border-black" x-data="{selected:null}">
+            <li class="relative" x-data="{selected:null}">
               <button
                 type="button"
                 class="accordion--button w-full py-[--padding] text-left"
@@ -342,7 +344,7 @@
 
                   <article class="subsection">
                     <h2>Bottega Veneta timeline</h2>
-                    <div class="timeline">
+                    <div class="timeline mt-[--padding]">
                       <div class="timeline--section">
                         <div class="timeline--title uppercase">Today</div>
                         <div class="timeline--items">
@@ -393,7 +395,7 @@
                           <article class="reading-text">
                             <p>
                               100% of our materials certified to the
-                              best-in-class, 3rd party, environmental, social
+                              best-in-class, third party, environmental, social
                               and animal certifications, as recognized in the
                               Kering Standards & Guidance for Sustainable
                               Production.
@@ -452,8 +454,8 @@
                       </p>
                       <p>
                         Our specialist Shoe Atelier in Vigonza, inaugurated in
-                        2023, isalso LEED platinum-certified. The atelier
-                        includes energy-saving measures, such as solar panels,
+                        2023, is also LEED platinum-certified. The atelier
+                        includes energy-saving measures such as solar panels,
                         recycled materials in construction, initiatives to
                         support local biodiversity, and the preservation of
                         natural habitats.
@@ -484,7 +486,7 @@
                     <h2>Stores</h2>
                     <div class="reading-text">
                       <p>
-                        Since 2022, all Bottega Veneta new stores openings and
+                        Since 2022, all Bottega Veneta new stores and
                         refurbishments are at least LEED gold certified. We use
                         100% renewable electricity for all European and American
                         locations and buy renewable energy certificates in other
@@ -516,9 +518,9 @@
                         at the Palazzo San Fedele and Via Privata Ercole
                         Marelli, with a total of 440 square meters of solar
                         panels. Both sites use 100% renewable electricity and
-                        feature several energy and water saving measures include
-                        high-performance presence sensors, lighting regulators,
-                        and rainwater collection systems.
+                        feature several energy and water-saving measures
+                        including high-performance presence sensors, lighting
+                        regulators, and rainwater collection systems.
                       </p>
                       <p>
                         Introduced in 2014, the 2,400 square meter eco-food
@@ -546,7 +548,7 @@
                         established by Kering, including the reuse, sale, or
                         recycling of materials post-show, as well as the
                         utilization of compostable packaging for locally
-                        sourced, fair-trade catering.
+                        sourced, fairtrade catering.
                       </p>
                     </div>
                     <div class="inline-slider">
@@ -578,7 +580,7 @@
               </div>
             </li>
 
-            <li class="relative border-b border-black" x-data="{selected:null}">
+            <li class="relative" x-data="{selected:null}">
               <button
                 type="button"
                 class="accordion--button w-full py-[--padding] text-left"
@@ -754,9 +756,12 @@
                 </div>
               </div>
             </li>
+            <div class="w-full px-[--padding-container]">
+              <div class="w-full border-b border-black"></div>
+            </div>
           </ul>
         </section>
-        <section class="section">
+        <section class="section [&_video]:object-cover">
           <video-js
             data-account="6159029852001"
             data-player="default"
@@ -774,7 +779,10 @@
     </div>
     <script src="https://players.brightcove.net/6159029852001/default_default/index.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+      defer
+    ></script>
     <!-- <script type="module" src="./index.js"></script> -->
   </body>
 </html>
