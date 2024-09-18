@@ -65,7 +65,7 @@ header {
   }
   h2 {
     display: block;
-    font-size: calc(var(--font-size) * 2.5);
+    font-size: calc(var(--font-size) * 2);
     line-height: 1.2;
     font-weight: 400;
     @include below($sm) {
@@ -156,11 +156,11 @@ header {
   }
   .inline-slider {
     width: 100vw;
+    margin-top: var(--font-size);
     @include below($md) {
       overflow-x: scroll;
       scroll-snap-type: x mandatory;
       @include hide-scrollbar;
-      margin-top: var(--font-size);
     }
     .inline-slider__container {
       display: flex;
