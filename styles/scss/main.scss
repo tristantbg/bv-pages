@@ -37,7 +37,8 @@ header {
 }
 .bv-page {
   --padding: 24px;
-  --padding-container: 8vw;
+  --padding-container: 80px;
+  --padding-container-large: 104px;
   --font-size: 20px;
   --viewport-height: 100dvh;
   --green: #486830;
@@ -50,6 +51,7 @@ header {
   background-color: var(--background);
   @include below($md) {
     --padding-container: var(--padding);
+    --padding-container-large: var(--padding);
     --font-size: 16px;
   }
   * {
@@ -69,18 +71,23 @@ header {
     line-height: 1.2;
     font-weight: 400;
     @include below($sm) {
-      font-size: var(--font-size);
+      font-size: 24px;
+      line-height: 1.2;
+    }
+  }
+  .text p {
+    font-size: 16px;
+    line-height: 23px;
+    @include below($sm) {
+      font-size: 14px;
     }
   }
   .title {
     font-size: var(--font-size);
-    @include below($sm) {
-      font-size: calc(var(--font-size) * 0.8);
-    }
   }
   h1.title {
     @include below($sm) {
-      font-size: calc(var(--font-size) * 1.5);
+      font-size: 24px;
       line-height: 1.2;
     }
   }
@@ -106,12 +113,12 @@ header {
   }
   .section--accordion {
     .accordion--button {
-      padding-top: 3rem;
-      padding-bottom: 3rem;
+      padding-top: 2.8rem;
+      padding-bottom: 2.8rem;
       border-top: 1px solid;
       @include below($sm) {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
+        padding-top: 32px;
+        padding-bottom: 32px;
       }
     }
     .accordion--content,
@@ -119,21 +126,24 @@ header {
       display: flex;
       flex-direction: column;
       width: 100%;
-      gap: 1rem;
+      gap: 0.9rem;
     }
     .accordion--content {
       @include above($sm + 1) {
-        padding-top: 2rem;
-        padding-bottom: 3rem;
+        padding-top: 0.8rem;
+        padding-bottom: 2.8rem;
       }
       @include below($sm) {
-        padding-bottom: 2rem;
+        padding-bottom: 40px;
       }
     }
     .subsection {
       &:not(:first-child) {
         h2 {
-          margin-top: 1.2em;
+          margin-top: 3.6rem;
+          @include below($sm) {
+            margin-top: 33px;
+          }
         }
       }
       p {
@@ -144,8 +154,8 @@ header {
     h2,
     .inline-slider,
     .subsection > .reading-text {
-      width: calc(100% - var(--padding-container) * 2);
-      margin-left: var(--padding-container);
+      width: calc(100% - var(--padding-container-large) * 2);
+      margin-left: var(--padding-container-large);
     }
     @include below($md) {
       .inline-slider {
@@ -161,6 +171,7 @@ header {
       overflow-x: scroll;
       scroll-snap-type: x mandatory;
       @include hide-scrollbar;
+      margin-top: 10px;
     }
     .inline-slider__container {
       display: flex;
@@ -168,7 +179,7 @@ header {
       gap: 1rem;
       @include below($md) {
         flex-wrap: nowrap;
-        gap: 0;
+        gap: 8px;
       }
     }
     img {
@@ -176,7 +187,7 @@ header {
       height: 10rem;
       max-width: max-content;
       @include below($md) {
-        height: 25rem;
+        height: 348px;
         scroll-snap-align: start;
       }
     }
@@ -186,8 +197,8 @@ header {
     display: grid;
     gap: var(--padding);
     @include above($md + 1) {
-      margin-left: var(--padding-container);
-      width: calc(100vw - var(--padding-container) * 1);
+      margin-left: var(--padding-container-large);
+      width: calc(100vw - var(--padding-container-large) * 1);
       display: flex;
       overflow-x: scroll;
       @include hide-scrollbar;
@@ -216,17 +227,11 @@ header {
         padding-right: var(--padding);
         // font-weight: 700;
         @include below($sm) {
-          left: var(--padding-container);
+          left: var(--padding-container-large);
         }
       }
       .timeline--items {
         display: flex;
-        @include above($sm + 1) {
-          font-size: calc(var(--font-size) * 0.875);
-        }
-        @include below($sm) {
-          // margin-left: var(--padding-container);
-        }
         &::before {
           content: "";
           min-width: 5rem;
@@ -246,15 +251,15 @@ header {
         padding-right: var(--padding);
         scroll-snap-align: start;
         p {
-          width: 30ch;
-          @include below($sm) {
-            width: calc(100vw - var(--padding-container) * 3);
-          }
+          width: 25ch;
+          // @include below($sm) {
+          //   width: calc(100vw - var(--padding-container-large) * 3);
+          // }
         }
         @include below($sm) {
           padding-left: var(--padding);
           &:last-child p {
-            width: calc(100vw - var(--padding-container) * 2);
+            width: calc(100vw - var(--padding-container-large) * 2);
           }
         }
         &::before {
@@ -269,7 +274,7 @@ header {
       }
       @include above($sm + 1) {
         &:last-child article:last-child {
-          margin-right: var(--padding-container);
+          margin-right: var(--padding-container-large);
         }
       }
     }
