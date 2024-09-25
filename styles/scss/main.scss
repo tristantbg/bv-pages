@@ -75,6 +75,9 @@ header {
       line-height: 1.2;
     }
   }
+  p {
+    font-size: var(--font-size);
+  }
   .text p {
     font-size: 16px;
     line-height: 23px;
